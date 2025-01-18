@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b64y6g61ojwx3"]
+
+[ext_resource type="Texture2D" uid="uid://dj5c6s0aowv10" path="res://textures/botsColorMap.png" id="1_r8uqk"]
+[ext_resource type="Texture2D" uid="uid://jne01ymf1clm" path="res://textures/botsEmisisonMap.png" id="2_iym1g"]
+
+[resource]
+albedo_texture = ExtResource("1_r8uqk")
+emission = Color(1, 1, 1, 1)
+emission_texture = ExtResource("2_iym1g")

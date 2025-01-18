@@ -1,14 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbpowpqmdgrnt"]
+[gd_scene load_steps=7 format=3 uid="uid://bbpowpqmdgrnt"]
 
-[ext_resource type="Texture2D" uid="uid://cl6td80ui4ph2" path="res://textures/Kitchen1-Colormap.png" id="1_hcstt"]
 [ext_resource type="ArrayMesh" uid="uid://bqxekk8xuw7q5" path="res://models/kitchenFloorTile.obj" id="2_85eiu"]
+[ext_resource type="Material" uid="uid://lmaclg581a1p" path="res://materials/kitchen_Mat.tres" id="3_ib05a"]
 [ext_resource type="ArrayMesh" uid="uid://ckrgk0hqkmxia" path="res://models/kitchenTable.obj" id="3_m8gu8"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5qus"]
-albedo_texture = ExtResource("1_hcstt")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivm0i"]
-albedo_texture = ExtResource("1_hcstt")
+[ext_resource type="Material" uid="uid://b64y6g61ojwx3" path="res://materials/bots_Mat.tres" id="4_3llkx"]
+[ext_resource type="ArrayMesh" uid="uid://cqnydra2y4gly" path="res://models/botBase.obj" id="5_m5qsv"]
+[ext_resource type="PackedScene" uid="uid://c4nvawtptak0b" path="res://scenes/bot.tscn" id="6_ubp0d"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -16,151 +13,151 @@ albedo_texture = ExtResource("1_hcstt")
 
 [node name="KitchenFloorTile" type="MeshInstance3D" parent="floor"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_v5qus")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile4" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 40)
-material_override = SubResource("StandardMaterial3D_v5qus")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile5" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 80)
-material_override = SubResource("StandardMaterial3D_v5qus")
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile2" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -40)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, 0)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile3" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -80)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, 0)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../..")
+
+[node name="KitchenFloorTile4" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, 0)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../..")
+
+[node name="KitchenFloorTile5" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, 0)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile6" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, 0)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 40)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile7" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, 40)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, 40)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile8" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, 80)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, 40)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile9" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, -40)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, 40)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile10" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, -80)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, 40)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile11" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, 0)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 80)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile12" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, 40)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, 80)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile13" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, 80)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, 80)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile14" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, -40)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, 80)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile15" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, -80)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, 80)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile16" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, 0)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -40)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile17" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, 40)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, -40)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile18" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, 80)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, -40)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile19" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, -40)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, -40)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile20" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, -80)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, -40)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile21" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, 0)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -80)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile22" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, 40)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, -80)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile23" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, 80)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, -80)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile24" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, -40)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, -80)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
 [node name="KitchenFloorTile25" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, -80)
-material_override = SubResource("StandardMaterial3D_v5qus")
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, -80)
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("2_85eiu")
 skeleton = NodePath("../..")
 
@@ -168,6 +165,14 @@ skeleton = NodePath("../..")
 
 [node name="kitchenTable" type="MeshInstance3D" parent="furniture"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -35)
-material_override = SubResource("StandardMaterial3D_ivm0i")
+material_override = ExtResource("3_ib05a")
 mesh = ExtResource("3_m8gu8")
 skeleton = NodePath("../..")
+
+[node name="BotBase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 0)
+material_override = ExtResource("4_3llkx")
+mesh = ExtResource("5_m5qsv")
+
+[node name="bot" parent="." instance=ExtResource("6_ubp0d")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -57.2161, 0, 1.53776)
