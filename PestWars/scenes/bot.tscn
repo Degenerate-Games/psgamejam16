@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4nvawtptak0b"]
+
+[ext_resource type="Texture2D" uid="uid://dj5c6s0aowv10" path="res://textures/Bots-Colormap.png" id="1_0cnr2"]
+[ext_resource type="ArrayMesh" uid="uid://bkas588vpr818" path="res://models/botBody.obj" id="2_pxowf"]
+[ext_resource type="ArrayMesh" uid="uid://b8ltomuyw8pcu" path="res://models/botWheel.obj" id="3_ur7dn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8rpd"]
+albedo_texture = ExtResource("1_0cnr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6tys"]
+albedo_texture = ExtResource("1_0cnr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f412e"]
+albedo_texture = ExtResource("1_0cnr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tcxu"]
+albedo_texture = ExtResource("1_0cnr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hekh"]
+albedo_texture = ExtResource("1_0cnr2")
+
+[sub_resource type="Animation" id="Animation_xnttu"]
+resource_name = "bot_Moving"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BotWheel")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, -4.37114e-08)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BotWheel2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, -4.37114e-08)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BotWheel3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 1, 4.37114e-08, 1, 1, 0, 0, 0, 1)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BotWheel4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, -4.37114e-08)
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BotBody")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0.28117, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vrn2p"]
+_data = {
+"bot_Moving": SubResource("Animation_xnttu")
+}
+
+[node name="bot" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="BotBody" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_n8rpd")
+mesh = ExtResource("2_pxowf")
+
+[node name="BotWheel" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, -3, 0, 3)
+material_override = SubResource("StandardMaterial3D_m6tys")
+mesh = ExtResource("3_ur7dn")
+
+[node name="BotWheel2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, 3, 0, 3)
+material_override = SubResource("StandardMaterial3D_f412e")
+mesh = ExtResource("3_ur7dn")
+
+[node name="BotWheel3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+material_override = SubResource("StandardMaterial3D_8tcxu")
+mesh = ExtResource("3_ur7dn")
+
+[node name="BotWheel4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, 3, 0, -3)
+material_override = SubResource("StandardMaterial3D_4hekh")
+mesh = ExtResource("3_ur7dn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vrn2p")
+}

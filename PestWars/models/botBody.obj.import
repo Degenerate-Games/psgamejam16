@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bkas588vpr818"
+path="res://.godot/imported/botBody.obj-7b7c7a7636590cd39359731b365957cb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/botBody.obj-7b7c7a7636590cd39359731b365957cb.mesh"]
+
+source_file="res://models/botBody.obj"
+dest_files=["res://.godot/imported/botBody.obj-7b7c7a7636590cd39359731b365957cb.mesh", "res://.godot/imported/botBody.obj-7b7c7a7636590cd39359731b365957cb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
