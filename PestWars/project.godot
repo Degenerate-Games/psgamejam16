@@ -20,6 +20,14 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[layer_names]
+
+3d_physics/layer_1="World"
+3d_physics/layer_2="FriendlyUnits"
+3d_physics/layer_3="EnemyUnits"
+3d_physics/layer_4="FriendlyStructures"
+3d_physics/layer_5="EnemyStrructures"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
