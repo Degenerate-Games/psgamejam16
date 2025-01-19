@@ -106,18 +106,23 @@ reflected_light_source = 2
 [node name="Node3D" type="Node3D"]
 
 [node name="BotBase" parent="." instance=ExtResource("1_wbdwb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 0)
 
-[node name="bot" parent="." instance=ExtResource("6_ubp0d")]
+[node name="bot" parent="." node_paths=PackedStringArray("TARGET_NODE") instance=ExtResource("6_ubp0d")]
 transform = Transform3D(-0.877222, 0, 0.480086, 0, 1, 0, -0.480086, 0, -0.877222, 32.9172, 0.0665358, -55.2436)
+TARGET_NODE = NodePath("../BotBase")
 
-[node name="bot2" parent="." instance=ExtResource("6_ubp0d")]
+[node name="bot2" parent="." node_paths=PackedStringArray("TARGET_NODE") instance=ExtResource("6_ubp0d")]
 transform = Transform3D(-0.411912, 0, -0.911224, 0, 1, 0, 0.911224, 0, -0.411912, 46.5093, 0.0665434, 62.1736)
+TARGET_NODE = NodePath("../BotBase")
 
-[node name="bot3" parent="." instance=ExtResource("6_ubp0d")]
+[node name="bot3" parent="." node_paths=PackedStringArray("TARGET_NODE") instance=ExtResource("6_ubp0d")]
 transform = Transform3D(-0.411912, 0, -0.911224, 0, 1, 0, 0.911224, 0, -0.411912, -13.531, 0.0665472, 69.0737)
+TARGET_NODE = NodePath("../BotBase")
 
-[node name="bot4" parent="." instance=ExtResource("6_ubp0d")]
+[node name="bot4" parent="." node_paths=PackedStringArray("TARGET_NODE") instance=ExtResource("6_ubp0d")]
 transform = Transform3D(0.114573, 0, -0.993415, 0, 1, 0, 0.993415, 0, 0.114573, 4.47673, 14.992, -36.733)
+TARGET_NODE = NodePath("../BotBase")
 
 [node name="bug" parent="." instance=ExtResource("7_k3nt0")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
