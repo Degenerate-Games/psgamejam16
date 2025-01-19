@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbpowpqmdgrnt"]
+[gd_scene load_steps=9 format=3 uid="uid://bbpowpqmdgrnt"]
 
 [ext_resource type="ArrayMesh" uid="uid://bqxekk8xuw7q5" path="res://models/kitchenFloorTile.obj" id="2_85eiu"]
 [ext_resource type="Material" uid="uid://lmaclg581a1p" path="res://materials/kitchenMat.tres" id="3_ib05a"]
@@ -8,167 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://c4nvawtptak0b" path="res://scenes/bot.tscn" id="6_ubp0d"]
 [ext_resource type="PackedScene" uid="uid://bcdl5v6f1hbfc" path="res://scenes/pestBug.tscn" id="7_k3nt0"]
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_d4fd1"]
+vertices = PackedVector3Array(-20.5, -0.25, -45.25, -19, 0, -45.5, -19, 0, -104.5, -99.5, 0, -104.5, -99.5, 0, -44, -99.5, 0, -44, -20.5, 0, -44, -20.5, -0.25, -45.25, -17.75, 0, -45.5, -17.5, -0.25, -45, 17.5, -0.25, -45, 17.75, 0, -45.5, 19.25, 0, -104.5, -19, 0, -104.5, 17.75, 0, -45.5, 19.25, 0, -45.5, 19.25, 0, -104.5, -19, 0, -104.5, -19, 0, -45.5, -17.75, 0, -45.5, 19.25, 0, -104.5, 19.25, 0, -45.5, 20.5, 0, -45.5, 19.25, 0, -104.5, 20.5, 0, -45.5, 20.75, 0, -44, 99.5, 0, -44, 99.5, 0, -104.5, -20, 0, -42.5, -20, -0.25, -27.5, -19.5, 0, -27.5, -19.5, 0, -42.5, -17.5, -0.25, -25, 17.5, -0.25, -25, 17.5, 0, -25.5, 17.5, 0, -25.5, 20, -0.25, -27.5, 20, 0, -42.5, -17.5, -0.25, -45, -19.5, 0, -42.5, -19.5, 0, -27.5, 17.5, 0, -25.5, 20, 0, -42.5, 17.5, 0, -44.5, -17.5, -0.25, -45, -19.5, 0, -27.5, -17.5, -0.25, -25, 17.5, 0, -44.5, 17.5, -0.25, -45, -17.5, -0.25, -45, -19.5, 14.5, -44.5, -19.5, 14.5, -25.5, 19.5, 14.5, -25.5, 19.5, 14.5, -44.5, -20.5, 0, -27.25, -20, -0.25, -27.5, -20, 0, -42.5, -20.5, 0, -42.75, -99.5, 0, -44, -99.5, 0, -25.75, -99.5, 0, -25.75, -20.5, 0, -25.75, -20.5, 0, -27.25, -20.5, 0, -42.75, -20.5, 0, -44, -99.5, 0, -44, 20, 0, -42.5, 20, -0.25, -27.5, 20.75, 0, -27.25, 99.5, 0, -26, 99.5, 0, -44, 20.75, 0, -42.75, 99.5, 0, -44, 20.75, 0, -44, 20.75, 0, -42.75, 20.75, 0, -27.25, 20.75, 0, -26, 99.5, 0, -26, 99.5, 0, -26, 20.75, 0, -26, 20.75, 0, -24.75, 99.5, 0, -26, 20.75, 0, -24.75, 20.25, 0, -24.25, 19, 0, 94.5, 99.5, 0, 94.5, 20.25, 0, -24.25, 19, 0, -24.25, 19, 0, 94.5, -20.5, 0, -24.5, -20.5, 0, -25.75, -99.5, 0, -25.75, -19, 0, -24.25, -20.5, 0, -24.5, -99.5, 0, -25.75, -99.5, 0, 94.5, -19, 0, 94.5, 17.75, 0, -24.25, 17.5, -0.25, -25, -17.5, -0.25, -25, -17.75, 0, -24.25, -19, 0, 94.5, 19, 0, 94.5, -17.75, 0, -24.25, -19, 0, -24.25, -19, 0, 94.5, 19, 0, 94.5, 19, 0, -24.25, 17.75, 0, -24.25)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(7, 6, 5), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 13), PackedInt32Array(11, 13, 12), PackedInt32Array(16, 15, 14), PackedInt32Array(19, 18, 17), PackedInt32Array(22, 21, 20), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 23, 26), PackedInt32Array(26, 23, 27), PackedInt32Array(31, 30, 28), PackedInt32Array(28, 30, 29), PackedInt32Array(34, 33, 32), PackedInt32Array(37, 36, 35), PackedInt32Array(40, 39, 38), PackedInt32Array(42, 41, 43), PackedInt32Array(43, 41, 46), PackedInt32Array(43, 46, 45), PackedInt32Array(43, 45, 44), PackedInt32Array(49, 48, 47), PackedInt32Array(53, 52, 50), PackedInt32Array(50, 52, 51), PackedInt32Array(55, 54, 56), PackedInt32Array(56, 54, 57), PackedInt32Array(57, 54, 58), PackedInt32Array(58, 54, 59), PackedInt32Array(62, 61, 60), PackedInt32Array(65, 64, 63), PackedInt32Array(66, 71, 67), PackedInt32Array(67, 71, 68), PackedInt32Array(68, 71, 70), PackedInt32Array(68, 70, 69), PackedInt32Array(74, 73, 72), PackedInt32Array(77, 76, 75), PackedInt32Array(80, 79, 78), PackedInt32Array(82, 81, 83), PackedInt32Array(83, 81, 85), PackedInt32Array(83, 85, 84), PackedInt32Array(88, 87, 86), PackedInt32Array(91, 90, 89), PackedInt32Array(93, 92, 94), PackedInt32Array(94, 92, 96), PackedInt32Array(94, 96, 95), PackedInt32Array(98, 97, 99), PackedInt32Array(99, 97, 100), PackedInt32Array(100, 97, 102), PackedInt32Array(100, 102, 101), PackedInt32Array(105, 104, 103), PackedInt32Array(108, 107, 106)]
+
 [node name="Node3D" type="Node3D"]
-
-[node name="floor" type="Node3D" parent="."]
-
-[node name="KitchenFloorTile" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile2" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, 0)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile3" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, 0)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile4" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, 0)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile5" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, 0)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile6" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 40)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile7" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, 40)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile8" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, 40)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile9" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, 40)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile10" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, 40)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile11" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 80)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile12" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, 80)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile13" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, 80)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile14" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, 80)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile15" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, 80)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile16" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -40)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile17" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, -40)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile18" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, -40)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile19" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, -40)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile20" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, -40)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile21" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -80)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile22" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, -80)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile23" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, -80)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile24" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, -80)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="KitchenFloorTile25" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, -80)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("2_85eiu")
-skeleton = NodePath("../..")
-
-[node name="furniture" type="Node3D" parent="."]
-
-[node name="kitchenTable" type="MeshInstance3D" parent="furniture"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -35)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("3_m8gu8")
-skeleton = NodePath("../..")
 
 [node name="BotBase" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 0)
@@ -180,3 +24,166 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -57.2161, 0, 1.53776)
 
 [node name="bug" parent="." instance=ExtResource("7_k3nt0")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Environment" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_d4fd1")
+
+[node name="Floor" type="Node3D" parent="Environment"]
+
+[node name="KitchenFloorTile" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile2" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, 0)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile3" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, -0.003, 0)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile4" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, 0)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile5" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, 0)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile6" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 40)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile7" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, 40)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile8" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, 40)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile9" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, 40)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile10" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, 40)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile11" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 80)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile12" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, 80)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile13" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, 80)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile14" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, 80)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile15" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, 80)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile16" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -40)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile17" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, -40)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile18" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, -40)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile19" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, -40)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile20" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, -40)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile21" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -80)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile22" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 40, 0, -80)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile23" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 80, 0, -80)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile24" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40, 0, -80)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="KitchenFloorTile25" type="MeshInstance3D" parent="Environment/Floor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -80, 0, -80)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("2_85eiu")
+skeleton = NodePath("../../..")
+
+[node name="Furniture" type="Node3D" parent="Environment"]
+
+[node name="kitchenTable" type="MeshInstance3D" parent="Environment/Furniture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -35)
+material_override = ExtResource("3_ib05a")
+mesh = ExtResource("3_m8gu8")
+skeleton = NodePath("../../..")
