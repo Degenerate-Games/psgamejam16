@@ -58,6 +58,8 @@ _data = {
 }
 
 [node name="Bot" type="VehicleBody3D"]
+collision_layer = 2
+collision_mask = 21
 center_of_mass_mode = 1
 script = ExtResource("1_rn4si")
 
