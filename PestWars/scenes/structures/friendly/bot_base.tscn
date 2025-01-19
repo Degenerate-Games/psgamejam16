@@ -14,6 +14,5 @@ collision_mask = 4
 shape = SubResource("ConvexPolygonShape3D_mnfgv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 0)
 material_override = ExtResource("1_xr0vt")
 mesh = ExtResource("2_o8n02")
