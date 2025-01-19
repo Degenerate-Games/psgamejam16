@@ -1,36 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4nvawtptak0b"]
+[gd_scene load_steps=8 format=3 uid="uid://c4nvawtptak0b"]
 
 [ext_resource type="Material" uid="uid://b64y6g61ojwx3" path="res://materials/botMat.tres" id="1_hgx5d"]
+[ext_resource type="Script" path="res://scripts/bot.gd" id="1_rn4si"]
 [ext_resource type="ArrayMesh" uid="uid://bkas588vpr818" path="res://models/botBody.obj" id="2_pxowf"]
 [ext_resource type="ArrayMesh" uid="uid://b8ltomuyw8pcu" path="res://models/botWheel.obj" id="3_ur7dn"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hxrx"]
+radius = 1.75
+height = 10.0
+
 [sub_resource type="Animation" id="Animation_xnttu"]
 resource_name = "bot_Moving"
+loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BotWheel")
+tracks/0/path = NodePath("VehicleWheel3D/BotWheel")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, -4.37114e-08)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BotWheel2")
+tracks/1/path = NodePath("VehicleWheel3D2/BotWheel2")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, -4.37114e-08)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BotWheel3")
+tracks/2/path = NodePath("VehicleWheel3D3/BotWheel3")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 1, 4.37114e-08, 1, 1, 0, 0, 0, 1)
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BotWheel4")
+tracks/3/path = NodePath("VehicleWheel3D4/BotWheel4")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, -4.37114e-08)
@@ -47,34 +53,80 @@ _data = {
 "bot_Moving": SubResource("Animation_xnttu")
 }
 
-[node name="bot" type="Node3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+[node name="Bot" type="VehicleBody3D"]
+center_of_mass_mode = 1
+script = ExtResource("1_rn4si")
 
 [node name="BotBody" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.0945345, 0.113662, 0)
 material_override = ExtResource("1_hgx5d")
 mesh = ExtResource("2_pxowf")
 
-[node name="BotWheel" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, -3, 0, 3)
-material_override = ExtResource("1_hgx5d")
-mesh = ExtResource("3_ur7dn")
+[node name="BodyCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(-8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0, 0.2, 0.0945345, 0.332016, 0)
+shape = SubResource("CapsuleShape3D_0hxrx")
 
-[node name="BotWheel2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, 3, 0, 3)
-material_override = ExtResource("1_hgx5d")
-mesh = ExtResource("3_ur7dn")
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.505466, 0.113662, 0.6)
+engine_force = 100.0
+use_as_steering = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.4
+suspension_travel = 0.1
+suspension_stiffness = 50.0
 
-[node name="BotWheel3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+[node name="BotWheel" type="MeshInstance3D" parent="VehicleWheel3D"]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
 material_override = ExtResource("1_hgx5d")
 mesh = ExtResource("3_ur7dn")
+skeleton = NodePath("../..")
 
-[node name="BotWheel4" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, 3, 0, -3)
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.694535, 0.113662, 0.6)
+use_as_traction = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.4
+suspension_travel = 0.1
+suspension_stiffness = 50.0
+
+[node name="BotWheel2" type="MeshInstance3D" parent="VehicleWheel3D2"]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
 material_override = ExtResource("1_hgx5d")
 mesh = ExtResource("3_ur7dn")
+skeleton = NodePath("../..")
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.505466, 0.113662, -0.6)
+engine_force = 100.0
+use_as_steering = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.4
+suspension_travel = 0.1
+suspension_stiffness = 50.0
+
+[node name="BotWheel3" type="MeshInstance3D" parent="VehicleWheel3D3"]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
+material_override = ExtResource("1_hgx5d")
+mesh = ExtResource("3_ur7dn")
+skeleton = NodePath("../..")
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.694535, 0.113662, -0.6)
+use_as_traction = true
+wheel_roll_influence = 0.5
+wheel_radius = 0.4
+suspension_travel = 0.1
+suspension_stiffness = 50.0
+
+[node name="BotWheel4" type="MeshInstance3D" parent="VehicleWheel3D4"]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
+material_override = ExtResource("1_hgx5d")
+mesh = ExtResource("3_ur7dn")
+skeleton = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vrn2p")
 }
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
