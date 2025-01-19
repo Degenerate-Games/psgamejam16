@@ -6,14 +6,14 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mnfgv"]
 points = PackedVector3Array(-0.00102758, -0.000170708, -5.25, -0.00102758, 0.799814, -5.00024, 3.5346, 0.799814, -3.53666, 3.71138, -0.000170708, -3.71241, 3.5346, -1, -3.53666, -0.00102758, -1, -5.00024, -3.53666, -1, -3.53666, -3.71241, -0.000170708, -3.71241, -3.53666, 0.799814, -3.53666, -0.00102758, 1.06432, -4.7361, 3.34754, 1.06432, -3.3496, 4.73507, 1.06432, -0.00102758, 4.99922, 0.799814, -0.00102758, 5.24897, -0.000170708, -0.00102758, 4.99922, -1, -0.00102758, -5.00024, -1, -0.00102758, -5.25, -0.000170708, -0.00102758, -3.3496, 1.06432, -3.3496, -5.00024, 0.799814, -0.00102758, -4.7361, 1.06432, -0.00102758, 3.34754, 1.06432, 3.34754, 3.5346, 0.799814, 3.5346, 3.71138, -0.000170708, 3.71138, 4.26742, -1, 1.76679, -3.53666, -1, 3.5346, -3.71241, -0.000170708, 3.71138, -3.53666, 0.799814, 3.5346, -3.3496, 1.06432, 3.34754, -0.00102758, 1.06432, 4.73507, -0.00102758, 0.799814, 4.99922, -0.00102758, -0.000170708, 5.24897, -0.00102758, -1, 4.99922, 3.5346, -1, 3.5346, -1.76782, -1, 4.26742)
 
-[node name="BotBase" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 0)
-material_override = ExtResource("1_xr0vt")
-mesh = ExtResource("2_o8n02")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="BotBase" type="StaticBody3D"]
 collision_layer = 8
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_mnfgv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 0)
+material_override = ExtResource("1_xr0vt")
+mesh = ExtResource("2_o8n02")
