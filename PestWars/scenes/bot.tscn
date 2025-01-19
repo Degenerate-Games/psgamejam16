@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4nvawtptak0b"]
 
-[ext_resource type="Material" uid="uid://b64y6g61ojwx3" path="res://materials/bots_Mat.tres" id="1_hgx5d"]
+[ext_resource type="Material" uid="uid://b64y6g61ojwx3" path="res://materials/botMat.tres" id="1_hgx5d"]
 [ext_resource type="ArrayMesh" uid="uid://bkas588vpr818" path="res://models/botBody.obj" id="2_pxowf"]
 [ext_resource type="ArrayMesh" uid="uid://b8ltomuyw8pcu" path="res://models/botWheel.obj" id="3_ur7dn"]
 
