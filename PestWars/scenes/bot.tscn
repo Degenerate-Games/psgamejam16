@@ -130,3 +130,7 @@ libraries = {
 }
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_max_distance = 0.51
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0.359984, 0.636875, 1)
