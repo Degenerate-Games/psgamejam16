@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b0yebhukq717b"
+path="res://.godot/imported/pestBug.obj-ec5445a49442c001676864d05ae3ce81.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pestBug.obj-ec5445a49442c001676864d05ae3ce81.mesh"]
+
+source_file="res://models/pestBug.obj"
+dest_files=["res://.godot/imported/pestBug.obj-ec5445a49442c001676864d05ae3ce81.mesh", "res://.godot/imported/pestBug.obj-ec5445a49442c001676864d05ae3ce81.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
