@@ -41,3 +41,7 @@ func _physics_process(_delta):
 			animation_controller.pause()
 	else:
 		animation_controller.pause()
+
+
+func _on_navigation_agent_3d_navigation_finished():
+	queue_free()
