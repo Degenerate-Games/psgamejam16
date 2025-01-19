@@ -119,11 +119,21 @@ mesh = ExtResource("5_m5qsv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BotBase/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_mnfgv")
 
-[node name="bot" parent="." instance=ExtResource("6_ubp0d")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -57.2161, 0.0665349, 1.53776)
+[node name="bot" parent="." node_paths=PackedStringArray("TARGET_NODE") instance=ExtResource("6_ubp0d")]
+transform = Transform3D(-0.877222, 0, 0.480086, 0, 1, 0, -0.480086, 0, -0.877222, 32.9172, 0.0665358, -55.2436)
+TARGET_NODE = NodePath("../BotBase")
 
-[node name="Camera3D" type="Camera3D" parent="bot"]
-transform = Transform3D(1, 0, 0, 0, 0.781107, 0.624398, 0, -0.624398, 0.781107, 0, 3.87609, 7.52179)
+[node name="bot2" parent="." node_paths=PackedStringArray("TARGET_NODE") instance=ExtResource("6_ubp0d")]
+transform = Transform3D(-0.411912, 0, -0.911224, 0, 1, 0, 0.911224, 0, -0.411912, 46.5093, 0.0665434, 62.1736)
+TARGET_NODE = NodePath("../BotBase")
+
+[node name="bot3" parent="." node_paths=PackedStringArray("TARGET_NODE") instance=ExtResource("6_ubp0d")]
+transform = Transform3D(-0.411912, 0, -0.911224, 0, 1, 0, 0.911224, 0, -0.411912, -13.531, 0.0665472, 69.0737)
+TARGET_NODE = NodePath("../BotBase")
+
+[node name="bot4" parent="." node_paths=PackedStringArray("TARGET_NODE") instance=ExtResource("6_ubp0d")]
+transform = Transform3D(0.114573, 0, -0.993415, 0, 1, 0, 0.993415, 0, 0.114573, 4.47673, 14.992, -36.733)
+TARGET_NODE = NodePath("../BotBase")
 
 [node name="bug" parent="." instance=ExtResource("7_k3nt0")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
@@ -429,3 +439,6 @@ transform = Transform3D(-0.392522, 0.836344, -0.382695, -0.619228, 0.0673501, 0.
 light_color = Color(0.971327, 0.89379, 0.918848, 1)
 light_energy = 2.0
 shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.725374, -0.495995, 0.477306, 0, 0.693402, 0.720551, -0.688354, 0.522669, -0.502976, 107.791, 95.931, -124.176)
