@@ -64,16 +64,16 @@ center_of_mass_mode = 1
 script = ExtResource("1_rn4si")
 
 [node name="BotBody" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
 material_override = ExtResource("1_hgx5d")
 mesh = ExtResource("2_pxowf")
 
 [node name="BodyCollider" type="CollisionShape3D" parent="."]
-transform = Transform3D(-8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0, 0.2, 0.0945345, 0.332016, 0)
+transform = Transform3D(3.82137e-16, 8.74228e-09, -0.2, 0.2, -8.74228e-09, 0, -8.74228e-09, -0.2, -8.74228e-09, 0.0945345, 0.332016, 0)
 shape = SubResource("CapsuleShape3D_0hxrx")
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.505466, 0.113662, 0.6)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.505466, 0.113662, -0.600001)
 use_as_steering = true
 wheel_roll_influence = 0.5
 wheel_radius = 0.4
@@ -87,7 +87,7 @@ mesh = ExtResource("3_ur7dn")
 skeleton = NodePath("../..")
 
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.694535, 0.113662, 0.6)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.505466, 0.113662, 0.600001)
 use_as_traction = true
 wheel_roll_influence = 0.5
 wheel_radius = 0.4
@@ -101,7 +101,7 @@ mesh = ExtResource("3_ur7dn")
 skeleton = NodePath("../..")
 
 [node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.505466, 0.113662, -0.6)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.694535, 0.113662, -0.600001)
 use_as_steering = true
 wheel_roll_influence = 0.5
 wheel_radius = 0.4
@@ -115,7 +115,7 @@ mesh = ExtResource("3_ur7dn")
 skeleton = NodePath("../..")
 
 [node name="VehicleWheel3D4" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.694535, 0.113662, -0.6)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.694535, 0.113662, 0.600001)
 use_as_traction = true
 wheel_roll_influence = 0.5
 wheel_radius = 0.4
