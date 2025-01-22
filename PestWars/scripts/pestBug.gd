@@ -4,8 +4,6 @@ extends CharacterBody3D
 @export var GRAVITY = -9.8
 @export var TARGET_NODE: Node3D
 
-
-@onready var animation_controller: AnimationPlayer = $AnimationPlayer
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
 # Called when the node enters the scene tree for the first time.
