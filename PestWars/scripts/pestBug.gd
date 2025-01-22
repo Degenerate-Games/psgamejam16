@@ -14,6 +14,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
+		return
 	var new_velocity = Vector3.ZERO
 	if !navigation_agent.is_navigation_finished():
 		if !navigation_agent.is_target_reachable():
