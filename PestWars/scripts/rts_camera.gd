@@ -20,6 +20,8 @@ extends Node3D
 @export_range(0, 64, 4) var camera_automatic_pan_margin: int = 16
 ## The speed at which the camera moves when the mouse is near the edge of the screen.
 @export_range(0, 20, 0.5) var camera_automatic_pan_speed: float = 12.0
+## The area of the world the camera is allowed to pan in.
+@export var camera_safe_pan_zone: Rect2 = Rect2(-100, -100, 200, 200)
 
 @export_group("Camera Zoom Settings")
 ## The speed at which the camera zooms in and out when the camera_zoom_in and camera_zoom_out actions are pressed.
@@ -104,7 +106,10 @@ func camera_manual_pan(delta: float) -> void:
 	if Input.is_action_pressed("camera_right"): direction += transform.basis.x
 	if Input.is_action_pressed("camera_left"): direction -= transform.basis.x
 
-	position += direction.normalized() * camera_manual_pan_speed * delta
+	var new_position = position + direction.normalized() * camera_manual_pan_speed * delta
+	new_position.x = clamp(new_position.x, camera_safe_pan_zone.position.x, camera_safe_pan_zone.position.x + camera_safe_pan_zone.size.x)
+	new_position.z = clamp(new_position.z, camera_safe_pan_zone.position.y, camera_safe_pan_zone.position.y + camera_safe_pan_zone.size.y)
+	position = new_position
 
 
 # Zooms the camera in and out based on the value of camera_zoom_speed.
