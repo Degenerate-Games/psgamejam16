@@ -1,7 +1,7 @@
 extends VehicleBody3D
 
 @export_category("Movement Settings")
-@export_range(0, 3* PI / 4, 0.1) var MAX_STEERING_ANGLE = deg_to_rad(8)
+@export_range(0, 70, 1, "radians_as_degrees") var MAX_STEERING_ANGLE = deg_to_rad(8)
 @export var ENGINE_POWER = 50
 @export var MAX_SPEED = 10
 
