@@ -1,7 +1,7 @@
 extends VehicleBody3D
 
 @export_category("Movement Settings")
-@export var MAX_STEERING = deg_to_rad(8)
+@export_range(0, 3* PI / 4, 0.1) var MAX_STEERING_ANGLE = deg_to_rad(8)
 @export var ENGINE_POWER = 50
 @export var MAX_SPEED = 10
 
@@ -43,7 +43,7 @@ func _physics_process(_delta):
 			var direction = next_position - global_transform.origin
 			direction = direction.normalized()
 			var steering_angle = signed_angle_between(direction, global_transform.basis.z, global_transform.basis.y)
-			steering_angle = clamp(steering_angle, -MAX_STEERING, MAX_STEERING)
+			steering_angle = clamp(steering_angle, -MAX_STEERING_ANGLE, MAX_STEERING_ANGLE)
 			steering = steering_angle
 			
 			engine_force = ENGINE_POWER
@@ -62,7 +62,7 @@ func _physics_process(_delta):
 		linear_velocity = Vector3.ZERO
 		angular_velocity = Vector3.ZERO
 		engine_force = 0
-		steering = MAX_STEERING
+		steering = MAX_STEERING_ANGLE
 		get_parent().progress_ratio += 0.001
 	else:
 		animation_controller.pause()
