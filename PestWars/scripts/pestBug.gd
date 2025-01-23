@@ -37,12 +37,12 @@ func _physics_process(delta):
 
 
 func _on_navigation_agent_3d_navigation_finished():
-	queue_free()
+	pass
 
 
 func set_damage_multiplier(multiplier: float) -> void:
 	damage_multiplier = multiplier
 
-	
+
 func set_speed_multiplier(multiplier: float) -> void:
 	speed_multiplier = multiplier
