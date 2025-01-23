@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://r85m48hu68fe"]
 
-[ext_resource type="Script" path="res://scenes/structures/friendly/bot_base.gd" id="1_cc6c2"]
+[ext_resource type="Script" path="res://scripts/bot_base.gd" id="1_vu2ga"]
 [ext_resource type="Material" uid="uid://b64y6g61ojwx3" path="res://materials/botMat.tres" id="1_xr0vt"]
 [ext_resource type="ArrayMesh" uid="uid://cqnydra2y4gly" path="res://models/botBase.obj" id="2_o8n02"]
 
@@ -17,7 +17,7 @@ point_count = 9
 [node name="BotBase" type="StaticBody3D" groups=["friendly_base"]]
 collision_layer = 8
 collision_mask = 4
-script = ExtResource("1_cc6c2")
+script = ExtResource("1_vu2ga")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_mnfgv")
