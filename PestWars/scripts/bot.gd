@@ -4,6 +4,7 @@ extends VehicleBody3D
 @export_range(0, 70, 1, "radians_as_degrees") var MAX_STEERING_ANGLE = deg_to_rad(8)
 @export var ENGINE_POWER = 50
 @export var MAX_SPEED = 10
+@export var DAMAGE = 1
 
 @export_category("Navigation Settings")
 @export var TARGET_NODE: Node3D
@@ -17,9 +18,12 @@ var MODE_FOLLOWING = 1
 var MODE_IDLE = 2
 
 
-
 @onready var animation_controller: AnimationPlayer = $AnimationPlayer
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
+
+var damage_multiplier: float = 1.0
+var speed_multiplier: float = 1.0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,7 +51,7 @@ func _physics_process(_delta):
 			steering = steering_angle
 			
 			engine_force = ENGINE_POWER
-			if linear_velocity.length() > MAX_SPEED:
+			if linear_velocity.length() > MAX_SPEED * speed_multiplier:
 				engine_force = 0
 			if engine_force > 0:
 				animation_controller.play("bot_Moving")
@@ -87,3 +91,11 @@ func signed_angle_between(v1: Vector3, v2: Vector3, n: Vector3) -> float:
 	if s < 0:
 		return -unsigned_angle
 	return unsigned_angle
+
+
+func set_damage_multiplier(multiplier: float) -> void:
+	damage_multiplier = multiplier
+
+	
+func set_speed_multiplier(multiplier: float) -> void:
+	speed_multiplier = multiplier

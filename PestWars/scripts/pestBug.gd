@@ -6,6 +6,9 @@ extends CharacterBody3D
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
+var damage_multiplier: float = 1.0
+var speed_multiplier: float = 1.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	navigation_agent.target_position = TARGET_NODE.global_transform.origin
@@ -23,7 +26,7 @@ func _physics_process(delta):
 		var next_position = navigation_agent.get_next_path_position()
 		var direction = next_position - global_transform.origin
 		direction = direction.normalized()
-		new_velocity = direction * MAX_SPEED
+		new_velocity = direction * MAX_SPEED * speed_multiplier
 	if !is_on_floor():
 		new_velocity.y = GRAVITY
 	velocity = velocity.move_toward(new_velocity, 10 * delta)
@@ -35,3 +38,11 @@ func _physics_process(delta):
 
 func _on_navigation_agent_3d_navigation_finished():
 	queue_free()
+
+
+func set_damage_multiplier(multiplier: float) -> void:
+	damage_multiplier = multiplier
+
+	
+func set_speed_multiplier(multiplier: float) -> void:
+	speed_multiplier = multiplier
