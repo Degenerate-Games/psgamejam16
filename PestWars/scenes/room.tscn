@@ -1,10 +1,11 @@
-[gd_scene load_steps=43 format=3 uid="uid://bbpowpqmdgrnt"]
+[gd_scene load_steps=44 format=3 uid="uid://bbpowpqmdgrnt"]
 
 [ext_resource type="PackedScene" uid="uid://r85m48hu68fe" path="res://scenes/structures/friendly/bot_base.tscn" id="1_wbdwb"]
 [ext_resource type="ArrayMesh" uid="uid://bqxekk8xuw7q5" path="res://models/kitchenFloorTile.obj" id="2_85eiu"]
 [ext_resource type="Material" uid="uid://lmaclg581a1p" path="res://materials/kitchenMat.tres" id="3_ib05a"]
 [ext_resource type="ArrayMesh" uid="uid://ckrgk0hqkmxia" path="res://models/kitchenTable.obj" id="3_m8gu8"]
 [ext_resource type="PackedScene" uid="uid://c4nvawtptak0b" path="res://scenes/units/friendly/bot.tscn" id="6_ubp0d"]
+[ext_resource type="PackedScene" uid="uid://bjsk27yiuesl2" path="res://scenes/rts_camera.tscn" id="7_5sf1f"]
 [ext_resource type="PackedScene" uid="uid://bcdl5v6f1hbfc" path="res://scenes/units/enemy/pestBug.tscn" id="7_k3nt0"]
 [ext_resource type="Texture2D" uid="uid://cl6td80ui4ph2" path="res://textures/kitchen1ColorMap.png" id="7_v7i31"]
 [ext_resource type="ArrayMesh" uid="uid://cb0jr0y0jodhu" path="res://models/kitchenCornerCabinet.obj" id="8_obo02"]
@@ -501,8 +502,7 @@ light_color = Color(0.971327, 0.89379, 0.918848, 1)
 light_energy = 2.0
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1.03238e-07, 0.5, -0.866025, -5.96046e-08, 0.866025, 0.5, 1, 0, 1.19209e-07, -88.0769, 12.5895, 0.968784)
+[node name="CameraBase" parent="." instance=ExtResource("7_5sf1f")]
 
 [node name="James\' lil Node" type="Node3D" parent="."]
 
