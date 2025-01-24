@@ -40,7 +40,9 @@ func _physics_process(_delta):
 	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return
 	if MODE == MODE_TRACKING:
-		if !navigation_agent.is_navigation_finished():
+		if TARGET_NODE == null or !TARGET_NODE.is_inside_tree():
+			MODE = MODE_IDLE
+		elif !navigation_agent.is_navigation_finished():
 			if !navigation_agent.is_target_reachable():
 				navigation_agent.target_position = TARGET_NODE.global_transform.origin
 			var next_position = navigation_agent.get_next_path_position()
