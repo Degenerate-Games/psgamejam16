@@ -4,5 +4,3 @@
 
 [node name="HitboxComponent" type="Area3D"]
 script = ExtResource("1_p7g1f")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
