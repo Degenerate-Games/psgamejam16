@@ -38,9 +38,10 @@ mesh = ExtResource("2_o8n02")
 [node name="Path3D" type="Path3D" parent="."]
 curve = SubResource("Curve3D_ux5ql")
 
-[node name="HitboxComponent" parent="." instance=ExtResource("4_x8hve")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_x8hve")]
 collision_layer = 8
 collision_mask = 6
+health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
 shape = SubResource("CylinderShape3D_mhkc5")
