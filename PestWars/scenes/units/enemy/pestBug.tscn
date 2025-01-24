@@ -167,7 +167,8 @@ debug_use_custom = true
 debug_path_custom_color = Color(0.757783, 0.887502, 1.54018e-06, 1)
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("4_1gxjw")]
-damage_multiplier = 100.0
+collision_layer = 4
+collision_mask = 24
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.344787, -0.453308)

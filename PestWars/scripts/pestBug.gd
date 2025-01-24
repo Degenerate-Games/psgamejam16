@@ -6,7 +6,6 @@ extends CharacterBody3D
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
-var damage_multiplier: float = 1.0
 var speed_multiplier: float = 1.0
 
 # Called when the node enters the scene tree for the first time.
@@ -38,10 +37,6 @@ func _physics_process(delta):
 
 func _on_navigation_agent_3d_navigation_finished():
 	pass
-
-
-func set_damage_multiplier(multiplier: float) -> void:
-	damage_multiplier = multiplier
 
 
 func set_speed_multiplier(multiplier: float) -> void:
