@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://r85m48hu68fe"]
 
-[ext_resource type="Script" path="res://scripts/base.gd" id="1_vu2ga"]
 [ext_resource type="Material" uid="uid://b64y6g61ojwx3" path="res://materials/botMat.tres" id="1_xr0vt"]
+[ext_resource type="Script" path="res://scripts/bot_base.gd" id="1_xtjxf"]
 [ext_resource type="ArrayMesh" uid="uid://cqnydra2y4gly" path="res://models/botBase.obj" id="2_o8n02"]
 [ext_resource type="PackedScene" uid="uid://d2pf8pqkev1q1" path="res://scenes/components/hitbox_component.tscn" id="4_x8hve"]
 [ext_resource type="PackedScene" uid="uid://bq8g11gl1b8h7" path="res://scenes/components/health_component.tscn" id="5_0lc3d"]
@@ -63,13 +63,13 @@ item = ExtResource("10_sq8b7")
 base_cost = 300
 cost_multiplier = 1.8
 
-[node name="BotBase" type="StaticBody3D" node_paths=PackedStringArray("health_component", "spawner_component", "store_component")]
+[node name="BotBase" type="StaticBody3D" node_paths=PackedStringArray("store_component", "health_component", "spawner_component")]
 collision_layer = 8
 collision_mask = 4
-script = ExtResource("1_vu2ga")
+script = ExtResource("1_xtjxf")
+store_component = NodePath("StoreComponent")
 health_component = NodePath("HealthComponent")
 spawner_component = NodePath("SpawnerComponent")
-store_component = NodePath("StoreComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_mnfgv")
@@ -81,9 +81,9 @@ mesh = ExtResource("2_o8n02")
 [node name="Path3D" type="Path3D" parent="."]
 curve = SubResource("Curve3D_ux5ql")
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_x8hve")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") groups=["base_navigation_mesh_source_group", "bot_base"] instance=ExtResource("4_x8hve")]
 collision_layer = 8
-collision_mask = 6
+collision_mask = 4
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
@@ -92,15 +92,11 @@ shape = SubResource("CylinderShape3D_mhkc5")
 [node name="HealthComponent" parent="." instance=ExtResource("5_0lc3d")]
 transform = Transform3D(2.5, 0, 0, 0, -1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, 0, 0, 0)
 texture = SubResource("ViewportTexture_uyrb3")
-base_health = 10.0
-health_multiplier = 1.0
-health_color = Color(0, 0, 1, 1)
-base_heal_rate = 1.0
-heal_rate_multiplier = 1.0
+base_health = 50.0
 
 [node name="Button3DComponent" parent="." instance=ExtResource("6_x0yq0")]
 transform = Transform3D(10, 0, 0, 0, 5.06139, 8.62452, 0, -8.62452, 5.06139, 0, 1.78183, 0.702092)
-collision_layer = 32
+collision_layer = 64
 collision_mask = 0
 
 [node name="StoreComponent" parent="." instance=ExtResource("6_jvn85")]

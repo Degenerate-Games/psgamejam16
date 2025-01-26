@@ -27,13 +27,10 @@ radius = 5.5
 [sub_resource type="ViewportTexture" id="ViewportTexture_uyrb3"]
 viewport_path = NodePath("SubViewport")
 
-[node name="EnemyBase" type="StaticBody3D" node_paths=PackedStringArray("health_component", "spawner_component", "store_component")]
-collision_layer = 8
-collision_mask = 4
+[node name="EnemyBase" type="StaticBody3D"]
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_pol5s")
-health_component = NodePath("HealthComponent")
-spawner_component = NodePath("SpawnerComponent")
-store_component = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_mnfgv")
@@ -45,9 +42,9 @@ mesh = ExtResource("3_hjj04")
 [node name="Path3D" type="Path3D" parent="."]
 curve = SubResource("Curve3D_ux5ql")
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_anp3o")]
-collision_layer = 8
-collision_mask = 6
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") groups=["base_navigation_mesh_source_group", "enemy_base"] instance=ExtResource("4_anp3o")]
+collision_layer = 16
+collision_mask = 2
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
@@ -57,10 +54,8 @@ shape = SubResource("CylinderShape3D_mhkc5")
 transform = Transform3D(2.5, 0, 0, 0, -1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, 0, 0, 0)
 texture = SubResource("ViewportTexture_uyrb3")
 base_health = 50.0
-health_multiplier = 1.0
 health_color = Color(0.468243, 0.328536, 0.220185, 1)
 base_heal_rate = 2.0
-heal_rate_multiplier = 1.0
 
 [node name="SpawnerComponent" parent="." instance=ExtResource("14_dcrje")]
 spawn_object = ExtResource("15_4gta2")

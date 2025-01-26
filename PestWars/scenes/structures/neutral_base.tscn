@@ -1,17 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2w1d6pndnjd0"]
+[gd_scene load_steps=10 format=3 uid="uid://d2w1d6pndnjd0"]
 
 [ext_resource type="Script" path="res://scripts/base.gd" id="1_q2kya"]
-[ext_resource type="ArrayMesh" uid="uid://cqnydra2y4gly" path="res://models/botBase.obj" id="3_5sv3c"]
+[ext_resource type="Material" uid="uid://dvahnnurtg7d3" path="res://materials/pestMat.tres" id="2_m6pnf"]
+[ext_resource type="ArrayMesh" uid="uid://b2iwupyvm3rpu" path="res://models/baseNeutral.obj" id="3_sgfop"]
 [ext_resource type="PackedScene" uid="uid://d2pf8pqkev1q1" path="res://scenes/components/hitbox_component.tscn" id="4_41pen"]
 [ext_resource type="PackedScene" uid="uid://bq8g11gl1b8h7" path="res://scenes/components/health_component.tscn" id="5_efefd"]
-[ext_resource type="PackedScene" uid="uid://d35ye1a8215q4" path="res://scenes/components/spawner_component.tscn" id="14_nmlo7"]
-[ext_resource type="PackedScene" uid="uid://c4nvawtptak0b" path="res://scenes/units/friendly/bot.tscn" id="15_bvgi6"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mnfgv"]
-points = PackedVector3Array(-0.00102758, -0.000170708, -5.25, -0.00102758, 0.799814, -5.00024, 3.5346, 0.799814, -3.53666, 3.71138, -0.000170708, -3.71241, 3.5346, -1, -3.53666, -0.00102758, -1, -5.00024, -3.53666, -1, -3.53666, -3.71241, -0.000170708, -3.71241, -3.53666, 0.799814, -3.53666, -0.00102758, 1.06432, -4.7361, 3.34754, 1.06432, -3.3496, 4.73507, 1.06432, -0.00102758, 4.99922, 0.799814, -0.00102758, 5.24897, -0.000170708, -0.00102758, 4.99922, -1, -0.00102758, -5.00024, -1, -0.00102758, -5.25, -0.000170708, -0.00102758, -3.3496, 1.06432, -3.3496, -5.00024, 0.799814, -0.00102758, -4.7361, 1.06432, -0.00102758, 3.34754, 1.06432, 3.34754, 3.5346, 0.799814, 3.5346, 3.71138, -0.000170708, 3.71138, 4.26742, -1, 1.76679, -3.53666, -1, 3.5346, -3.71241, -0.000170708, 3.71138, -3.53666, 0.799814, 3.5346, -3.3496, 1.06432, 3.34754, -0.00102758, 1.06432, 4.73507, -0.00102758, 0.799814, 4.99922, -0.00102758, -0.000170708, 5.24897, -0.00102758, -1, 4.99922, 3.5346, -1, 3.5346, -1.76782, -1, 4.26742)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3mqb"]
-albedo_color = Color(0.601265, 0.607858, 0.598027, 1)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vamrm"]
+data = PackedVector3Array(0, 0.2, -0.96, 0.6788, 0.2, -0.6788, -0.6788, 0.2, -0.6788, -0.6788, 0.2, -0.6788, 0.6788, 0.2, -0.6788, -0.96, 0.2, 0, -0.96, 0.2, 0, 0.6788, 0.2, -0.6788, -0.6788, 0.2, 0.6788, -0.6788, 0.2, 0.6788, 0.6788, 0.2, -0.6788, 0, 0.2, 0.96, 0, 0.2, 0.96, 0.6788, 0.2, -0.6788, 0.6788, 0.2, 0.6788, 0.6788, 0.2, 0.6788, 0.6788, 0.2, -0.6788, 0.96, 0.2, 0, 0, 0.275, -1.1, 0, -0.275, -1.87, 0.7778, 0.275, -0.7778, 0.7778, 0.275, -0.7778, 0, -0.275, -1.87, 1.3223, -0.275, -1.3223, 0.7778, 0.275, -0.7778, 1.3223, -0.275, -1.3223, 1.1, 0.275, 0, 1.1, 0.275, 0, 1.3223, -0.275, -1.3223, 1.87, -0.275, 0, 1.1, 0.275, 0, 1.87, -0.275, 0, 0.7778, 0.275, 0.7778, 0.7778, 0.275, 0.7778, 1.87, -0.275, 0, 1.3223, -0.275, 1.3223, 0.7778, 0.275, 0.7778, 1.3223, -0.275, 1.3223, 0, 0.275, 1.1, 0, 0.275, 1.1, 1.3223, -0.275, 1.3223, 0, -0.275, 1.87, 0, 0.275, 1.1, 0, -0.275, 1.87, -0.7778, 0.275, 0.7778, -0.7778, 0.275, 0.7778, 0, -0.275, 1.87, -1.3223, -0.275, 1.3223, -0.7778, 0.275, 0.7778, -1.3223, -0.275, 1.3223, -1.1, 0.275, 0, -1.1, 0.275, 0, -1.3223, -0.275, 1.3223, -1.87, -0.275, 0, 1.1, 0.275, 0, 0.7778, 0.275, 0.7778, 0.88, 0.175, 0, 0.88, 0.175, 0, 0.7778, 0.275, 0.7778, 0.6222, 0.175, 0.6222, -1.1, 0.275, 0, -1.87, -0.275, 0, -0.7778, 0.275, -0.7778, -0.7778, 0.275, -0.7778, -1.87, -0.275, 0, -1.3223, -0.275, -1.3223, -0.7778, 0.275, -0.7778, -1.3223, -0.275, -1.3223, 0, 0.275, -1.1, 0, 0.275, -1.1, -1.3223, -0.275, -1.3223, 0, -0.275, -1.87, -0.7778, 0.275, 0.7778, -1.1, 0.275, 0, -0.6223, 0.175, 0.6222, -0.6223, 0.175, 0.6222, -1.1, 0.275, 0, -0.88, 0.175, 0, 0.7778, 0.275, 0.7778, 0, 0.275, 1.1, 0.6222, 0.175, 0.6222, 0.6222, 0.175, 0.6222, 0, 0.275, 1.1, 0, 0.175, 0.88, -1.1, 0.275, 0, -0.7778, 0.275, -0.7778, -0.88, 0.175, 0, -0.88, 0.175, 0, -0.7778, 0.275, -0.7778, -0.6223, 0.175, -0.6223, 0.7778, 0.275, -0.7778, 1.1, 0.275, 0, 0.6222, 0.175, -0.6223, 0.6222, 0.175, -0.6223, 1.1, 0.275, 0, 0.88, 0.175, 0, 0, 0.275, 1.1, -0.7778, 0.275, 0.7778, 0, 0.175, 0.88, 0, 0.175, 0.88, -0.7778, 0.275, 0.7778, -0.6223, 0.175, 0.6222, -0.7778, 0.275, -0.7778, 0, 0.275, -1.1, -0.6223, 0.175, -0.6223, -0.6223, 0.175, -0.6223, 0, 0.275, -1.1, 0, 0.175, -0.88, 0, 0.275, -1.1, 0.7778, 0.275, -0.7778, 0, 0.175, -0.88, 0, 0.175, -0.88, 0.7778, 0.275, -0.7778, 0.6222, 0.175, -0.6223)
 
 [sub_resource type="Curve3D" id="Curve3D_ux5ql"]
 _data = {
@@ -22,30 +18,31 @@ point_count = 9
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mhkc5"]
 height = 2.5
-radius = 5.5
+radius = 4.34897
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_uyrb3"]
 viewport_path = NodePath("SubViewport")
 
-[node name="NeutralBase" type="StaticBody3D" node_paths=PackedStringArray("health_component", "spawner_component")]
-collision_layer = 8
-collision_mask = 4
+[node name="NeutralBase" type="StaticBody3D" node_paths=PackedStringArray("health_component")]
+collision_layer = 32
+collision_mask = 6
 script = ExtResource("1_q2kya")
 health_component = NodePath("HealthComponent")
-spawner_component = NodePath("SpawnerComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_mnfgv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_d3mqb")
-mesh = ExtResource("3_5sv3c")
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 0, 0.335444, 0)
+shape = SubResource("ConcavePolygonShape3D_vamrm")
 
 [node name="Path3D" type="Path3D" parent="."]
 curve = SubResource("Curve3D_ux5ql")
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_41pen")]
-collision_layer = 8
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 0, 0.335444, 0)
+material_override = ExtResource("2_m6pnf")
+mesh = ExtResource("3_sgfop")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") groups=["base_navigation_mesh_source_group", "neutral_base"] instance=ExtResource("4_41pen")]
+collision_layer = 32
 collision_mask = 6
 health_component = NodePath("../HealthComponent")
 
@@ -56,14 +53,7 @@ shape = SubResource("CylinderShape3D_mhkc5")
 transform = Transform3D(2.5, 0, 0, 0, -1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, 0, 0, 0)
 texture = SubResource("ViewportTexture_uyrb3")
 base_health = 50.0
-health_multiplier = 1.0
 health_color = Color(0.6, 0.607843, 0.596078, 1)
 base_heal_rate = 2.0
-heal_rate_multiplier = 1.0
-
-[node name="SpawnerComponent" parent="." instance=ExtResource("14_nmlo7")]
-spawn_object = ExtResource("15_bvgi6")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
-[connection signal="can_heal" from="HealthComponent" to="." method="_on_health_component_can_heal"]
-[connection signal="object_spawned" from="SpawnerComponent" to="." method="_on_spawner_component_object_spawned"]
