@@ -3,6 +3,7 @@ extends CharacterBody3D
 @export var GRAVITY = -9.8
 @export var TARGET_NODE: Node3D
 @export var speed_component: SpeedComponent
+@export var hurtbox_component: HurtboxComponent
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
