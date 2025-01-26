@@ -503,6 +503,8 @@ light_energy = 2.0
 shadow_enabled = true
 
 [node name="CameraBase" parent="." instance=ExtResource("7_5sf1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.4612, 0, 8.69467)
+camera_can_automatic_pan = false
 
 [node name="James\' lil Node" type="Node3D" parent="."]
 

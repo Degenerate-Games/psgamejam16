@@ -1,13 +1,15 @@
 extends VehicleBody3D
 
-@export_category("Movement Settings")
+@export_group("Movement Settings")
 @export_range(0, 70, 1, "radians_as_degrees") var MAX_STEERING_ANGLE = deg_to_rad(8)
 @export var ENGINE_POWER = 50
-@export var MAX_SPEED = 10
-@export var DAMAGE = 1
 
-@export_category("Navigation Settings")
+@export_group("Navigation Settings")
 @export var TARGET_NODE: Node3D
+
+@export_group("Components")
+@export var hurtbox_component: HurtboxComponent
+@export var speed_component: SpeedComponent
 
 var old_parent: Node3D
 
@@ -20,9 +22,6 @@ var MODE_IDLE = 2
 
 @onready var animation_controller: AnimationPlayer = $AnimationPlayer
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-
-var damage_multiplier: float = 1.0
-var speed_multiplier: float = 1.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -53,7 +52,7 @@ func _physics_process(_delta):
 			steering = steering_angle
 			
 			engine_force = ENGINE_POWER
-			if linear_velocity.length() > MAX_SPEED * speed_multiplier:
+			if linear_velocity.length() > speed_component.get_max_speed():
 				engine_force = 0
 			if engine_force > 0:
 				animation_controller.play("bot_Moving")
@@ -77,10 +76,10 @@ func _physics_process(_delta):
 
 
 func _on_navigation_agent_3d_navigation_finished():
-	# Target is not a friendly base
-	if TARGET_NODE.get_groups().find("friendly_base") == -1:
-		queue_free()
-	else:
+	if MODE != MODE_TRACKING:
+		return
+
+	if TARGET_NODE.get_groups().find("friendly_base") != -1:
 		old_parent = get_parent()
 		TARGET_NODE.call_deferred("add_path_follower", self)
 		MODE = MODE_FOLLOWING
@@ -93,11 +92,3 @@ func signed_angle_between(v1: Vector3, v2: Vector3, n: Vector3) -> float:
 	if s < 0:
 		return -unsigned_angle
 	return unsigned_angle
-
-
-func set_damage_multiplier(multiplier: float) -> void:
-	damage_multiplier = multiplier
-
-	
-func set_speed_multiplier(multiplier: float) -> void:
-	speed_multiplier = multiplier
