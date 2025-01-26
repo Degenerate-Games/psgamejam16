@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://77apaovt0efa"
+path="res://.godot/imported/Jazzy Stuf.mp3-26e006d58b9e633d7a4c0ff1f7513d67.mp3str"
+
+[deps]
+
+source_file="res://audio/Jazzy Stuf.mp3"
+dest_files=["res://.godot/imported/Jazzy Stuf.mp3-26e006d58b9e633d7a4c0ff1f7513d67.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
