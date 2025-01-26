@@ -151,6 +151,8 @@ debug_path_custom_color = Color(1, 0.359984, 0.636875, 1)
 [node name="SpeedComponent" parent="." instance=ExtResource("6_4dadl")]
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("6_vh06q")]
+collision_layer = 2
+collision_mask = 48
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent"]
 shape = SubResource("BoxShape3D_8ig7m")
