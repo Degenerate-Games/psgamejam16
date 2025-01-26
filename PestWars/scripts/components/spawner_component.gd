@@ -21,10 +21,17 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
+	spawn()
+
+
+func spawn() -> void:
+	object_spawned.emit(spawn_no_signal())
+
+
+func spawn_no_signal() -> Node3D:
 	var new_object = spawn_object.instantiate()
 	add_child(new_object)
-	object_spawned.emit(new_object)
-
+	return new_object
 
 func set_spawn_rate_multiplier(multiplier: float) -> void:
 	spawn_rate_multiplier = multiplier
