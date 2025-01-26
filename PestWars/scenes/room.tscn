@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bbpowpqmdgrnt"]
+[gd_scene load_steps=48 format=3 uid="uid://bbpowpqmdgrnt"]
 
 [ext_resource type="PackedScene" uid="uid://r85m48hu68fe" path="res://scenes/structures/base.tscn" id="1_wbdwb"]
 [ext_resource type="ArrayMesh" uid="uid://bqxekk8xuw7q5" path="res://models/kitchenFloorTile.obj" id="2_85eiu"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bcdl5v6f1hbfc" path="res://scenes/units/enemy/pestBug.tscn" id="7_k3nt0"]
 [ext_resource type="Texture2D" uid="uid://cl6td80ui4ph2" path="res://textures/kitchen1ColorMap.png" id="7_v7i31"]
 [ext_resource type="ArrayMesh" uid="uid://cb0jr0y0jodhu" path="res://models/kitchenCornerCabinet.obj" id="8_obo02"]
+[ext_resource type="ArrayMesh" uid="uid://b2y5u3qarp66o" path="res://models/pestBase.obj" id="9_hd55p"]
 [ext_resource type="ArrayMesh" uid="uid://ch5xfgws4tj1" path="res://models/kitchenCabinet.obj" id="9_y8etl"]
 [ext_resource type="Material" uid="uid://dvahnnurtg7d3" path="res://materials/pestMat.tres" id="12_rr50h"]
 [ext_resource type="ArrayMesh" uid="uid://b2iwupyvm3rpu" path="res://models/baseNeutral.obj" id="13_lugm5"]
@@ -526,7 +527,20 @@ material_override = SubResource("StandardMaterial3D_ewwct")
 mesh = ExtResource("9_y8etl")
 skeleton = NodePath("../..")
 
-[node name="BaseNeutral" type="MeshInstance3D" parent="."]
+[node name="BaseNeutral" type="MeshInstance3D" parent="James\' lil Node"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -35, 0, -20)
 material_override = ExtResource("12_rr50h")
 mesh = ExtResource("13_lugm5")
+skeleton = NodePath("../..")
+
+[node name="BaseNeutral2" type="MeshInstance3D" parent="James\' lil Node"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -9, 0, 21)
+material_override = ExtResource("12_rr50h")
+mesh = ExtResource("13_lugm5")
+skeleton = NodePath("../..")
+
+[node name="PestBase" type="MeshInstance3D" parent="James\' lil Node"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 20.3767, -0.400004, 0.939095)
+material_override = ExtResource("12_rr50h")
+mesh = ExtResource("9_hd55p")
+skeleton = NodePath("../../Navigation")
