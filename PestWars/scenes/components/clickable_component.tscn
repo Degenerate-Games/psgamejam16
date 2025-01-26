@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2o2tm5xnowae"]
+
+[ext_resource type="Script" path="res://scripts/components/clickable_component.gd" id="1_qxhkb"]
+
+[node name="ClickableComponent" type="Area3D"]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_qxhkb")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
