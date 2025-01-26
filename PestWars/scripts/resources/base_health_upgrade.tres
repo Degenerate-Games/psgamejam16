@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://c10v2jhw0dyfs"]
+
+[ext_resource type="Script" path="res://scripts/resources/upgrade.gd" id="1_mf5fn"]
+
+[resource]
+script = ExtResource("1_mf5fn")
+name = "Base Health"
+max_level = 3
+use_advanced_scaling = true
+advanced_scaling = Array[float]([1.0, 1.5, 2.0])

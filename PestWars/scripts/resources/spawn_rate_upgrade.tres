@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://bpq3s3dht6ofd"]
+
+[ext_resource type="Script" path="res://scripts/resources/upgrade.gd" id="1_00i0l"]
+
+[resource]
+script = ExtResource("1_00i0l")
+name = "Spawn Rate"
+max_level = 3
+use_advanced_scaling = false
+advanced_scaling = Array[float]([])

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://ccrwcnw0mc6ko"]
+
+[ext_resource type="Script" path="res://scripts/resources/upgrade.gd" id="1_l1emr"]
+
+[resource]
+script = ExtResource("1_l1emr")
+name = "Unit Speed"
+max_level = 3
+use_advanced_scaling = true
+advanced_scaling = Array[float]([1.0, 1.5, 2.0])

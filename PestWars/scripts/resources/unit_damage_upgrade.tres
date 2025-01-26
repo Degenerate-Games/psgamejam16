@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://kj8of1f80dvy"]
+
+[ext_resource type="Script" path="res://scripts/resources/upgrade.gd" id="1_jbsms"]
+
+[resource]
+script = ExtResource("1_jbsms")
+name = "Unit Damage"
+max_level = 3
+use_advanced_scaling = false
+advanced_scaling = Array[float]([])
