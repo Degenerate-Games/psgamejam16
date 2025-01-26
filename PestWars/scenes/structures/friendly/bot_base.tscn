@@ -94,7 +94,7 @@ transform = Transform3D(2.5, 0, 0, 0, -1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, 
 texture = SubResource("ViewportTexture_uyrb3")
 
 [node name="Button3DComponent" parent="." instance=ExtResource("6_x0yq0")]
-transform = Transform3D(10, 0, 0, 0, 5.06139, 8.62452, 0, -8.62452, 5.06139, 0, 1.78183, -2.26375)
+transform = Transform3D(10, 0, 0, 0, 5.06139, 8.62452, 0, -8.62452, 5.06139, 0, 1.78183, 0.702092)
 collision_layer = 32
 collision_mask = 0
 
