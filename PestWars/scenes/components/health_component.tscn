@@ -10,11 +10,6 @@ viewport_path = NodePath("SubViewport")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 texture = SubResource("ViewportTexture_7kbqi")
 script = ExtResource("1_ue0ia")
-base_health = null
-health_multiplier = null
-health_color = null
-base_heal_rate = null
-heal_rate_multiplier = null
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
