@@ -14,10 +14,25 @@ func add_path_follower(node: Node3D) -> PathFollow3D:
 	store_component.update_currency(1)
 	return follower
 
+
 func remove_path_follower() -> PathFollow3D:
 	var follower = super()
 	store_component.update_currency(-1)
 	return follower
+
+
+func send_units(target: Node3D, percentage: float, new_parent: Node3D) -> void:
+	var unit_count = path_followers.size()
+	if unit_count == 0:
+		return
+	for i in range(floor(unit_count * percentage)):
+		remove_path_follower().queue_free()
+		var unit = spawner_component.spawn_no_signal()
+		unit.reparent(new_parent, true)
+		unit.set_target(target)
+		unit.rotate_y(randf_range(0, TAU))
+		unit.hurtbox_component.set_damage_multiplier(store_component.get_upgrade_scale("Unit Damage"))
+		unit.speed_component.set_speed_multiplier(store_component.get_upgrade_scale("Unit Speed"))
 
 
 func _on_button_3d_component_pressed() -> void:

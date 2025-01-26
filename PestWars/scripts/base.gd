@@ -11,9 +11,8 @@ var path_followers = []
 
 func add_path_follower(node: Node3D) -> PathFollow3D:
 	var path_follower: PathFollow3D = PathFollow3D.new()
-	node.get_parent().remove_child(node)
 	node.global_transform = Transform3D.IDENTITY
-	path_follower.add_child(node)
+	node.reparent(path_follower, true)
 	path_followers.append(path_follower)
 	path.add_child(path_follower)
 	return path_follower
@@ -24,6 +23,17 @@ func remove_path_follower() -> PathFollow3D:
 		return null
 	
 	return path_followers.pop_back()
+
+
+func send_units(target: Node3D, percentage: float, new_parent: Node3D) -> void:
+	var unit_count = path_followers.size()
+	if unit_count == 0:
+		return
+	for i in range(floor(unit_count * percentage)):
+		remove_path_follower().queue_free()
+		var unit = spawner_component.spawn_no_signal()
+		unit.reparent(new_parent, true)
+		unit.set_target(target)
 
 
 func _on_spawner_component_object_spawned(object: Node3D) -> void:
@@ -38,18 +48,24 @@ func _on_health_component_can_heal() -> void:
 		path_follower.queue_free()
 
 
-func _on_input_event(_camera:Node, event:InputEvent, _event_position:Vector3, _normal:Vector3, _shape_idx:int) -> void:
-	if event is InputEventMouse:
-		if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
-			if event.is_pressed():
-				get_parent().start_drag(self, get_parent().drag_mode.LEFT)
-			else:
-				if get_parent().drag_start_base != null and get_parent().drag_mode == get_parent().drag_mode.LEFT:
-					get_parent().end_drag(self)
-		elif event.button_mask == MOUSE_BUTTON_MASK_RIGHT:
-			if event.is_pressed():
-				get_parent().start_drag(self, get_parent().drag_mode.RIGHT)
-			else:
-				if get_parent().drag_start_base != null and get_parent().drag_mode == get_parent().drag_mode.RIGHT:
-					get_parent().end_drag(self)
-		
+func _on_clickable_component_pressed(event:InputEvent) -> void:
+	if event.button_index == MOUSE_BUTTON_LEFT:
+		print("Left button pressed")
+		get_parent().start_drag(self, get_parent().drag_mode.LEFT)
+	elif event.button_index == MOUSE_BUTTON_RIGHT:
+		print("Right button pressed")
+		get_parent().start_drag(self, get_parent().drag_mode.RIGHT)
+
+
+func _on_clickable_component_released(event:InputEvent) -> void:
+	print("Button released")
+	print(event)
+	print(event.button_mask)
+	if event.button_index == MOUSE_BUTTON_LEFT:
+		print("Left button released")
+		if get_parent().drag_start_base != null and get_parent().current_drag_mode == get_parent().drag_mode.LEFT:
+			get_parent().end_drag(self)
+	elif event.button_index == MOUSE_BUTTON_RIGHT:
+		print("Right button released")
+		if get_parent().drag_start_base != null and get_parent().current_drag_mode == get_parent().drag_mode.RIGHT:
+			get_parent().end_drag(self)
