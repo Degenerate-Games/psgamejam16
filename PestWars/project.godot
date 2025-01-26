@@ -82,8 +82,9 @@ camera_rotate={
 3d_navigation/layer_3="Friendly"
 3d_physics/layer_4="FriendlyStructures"
 3d_navigation/layer_4="Enemy"
-3d_physics/layer_5="EnemyStrructures"
-3d_physics/layer_6="UI"
+3d_physics/layer_5="EnemyStructures"
+3d_physics/layer_6="NeutralStructures"
+3d_physics/layer_7="UI"
 
 [rendering]
 
