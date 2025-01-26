@@ -453,11 +453,11 @@ script = ExtResource("4_5b3ia")
 [node name="BotBase" parent="Terrrain/Bases" instance=ExtResource("1_wbdwb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 0)
 
-[node name="NeutralBase" parent="Terrrain/Bases" instance=ExtResource("6_tn3g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9593, -7.62939e-06, 37.0919)
-
 [node name="EnemyBase" parent="Terrrain/Bases" instance=ExtResource("7_0oqio")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.1707, -7.62939e-06, 1.41126)
+
+[node name="NeutralBase" parent="Terrrain/Bases" instance=ExtResource("6_tn3g3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.128244, -1.90735e-06, 39.3132)
 
 [node name="Bots" type="Node3D" parent="."]
 
