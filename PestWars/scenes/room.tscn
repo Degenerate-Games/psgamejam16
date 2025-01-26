@@ -1,9 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://bbpowpqmdgrnt"]
+[gd_scene load_steps=45 format=3 uid="uid://bbpowpqmdgrnt"]
 
-[ext_resource type="PackedScene" uid="uid://r85m48hu68fe" path="res://scenes/structures/friendly/bot_base.tscn" id="1_wbdwb"]
+[ext_resource type="PackedScene" uid="uid://r85m48hu68fe" path="res://scenes/structures/base.tscn" id="1_wbdwb"]
 [ext_resource type="ArrayMesh" uid="uid://bqxekk8xuw7q5" path="res://models/kitchenFloorTile.obj" id="2_85eiu"]
 [ext_resource type="Material" uid="uid://lmaclg581a1p" path="res://materials/kitchenMat.tres" id="3_ib05a"]
 [ext_resource type="ArrayMesh" uid="uid://ckrgk0hqkmxia" path="res://models/kitchenTable.obj" id="3_m8gu8"]
+[ext_resource type="Script" path="res://scripts/bases.gd" id="4_5b3ia"]
 [ext_resource type="PackedScene" uid="uid://c4nvawtptak0b" path="res://scenes/units/friendly/bot.tscn" id="6_ubp0d"]
 [ext_resource type="PackedScene" uid="uid://bjsk27yiuesl2" path="res://scenes/rts_camera.tscn" id="7_5sf1f"]
 [ext_resource type="PackedScene" uid="uid://bcdl5v6f1hbfc" path="res://scenes/units/enemy/pestBug.tscn" id="7_k3nt0"]
@@ -444,6 +445,7 @@ collision_mask = 6
 shape = SubResource("ConcavePolygonShape3D_ssc5t")
 
 [node name="Bases" type="Node3D" parent="Terrrain"]
+script = ExtResource("4_5b3ia")
 
 [node name="BotBase" parent="Terrrain/Bases" instance=ExtResource("1_wbdwb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 0)
