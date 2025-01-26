@@ -46,7 +46,6 @@ func _on_spawner_component_object_spawned(object: Node3D) -> void:
 
 
 func _on_store_component_store_item_bought(store_item: StoreItem) -> void:
-	print("Store item bought:", store_item.item.name)
 	for i in store_item.get_cost():
 		var path_follower = remove_path_follower()
 		path_follower.queue_free()

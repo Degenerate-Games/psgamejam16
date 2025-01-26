@@ -57,7 +57,6 @@ func heal(amount: float) -> void:
 
 
 func damage(amount: float) -> void:
-	print("Taking damage:", amount)
 	health -= amount
 	update_health_bar()
 	if health <= 0:
