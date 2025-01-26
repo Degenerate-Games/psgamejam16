@@ -72,7 +72,6 @@ spawn_object = ExtResource("7_lwpif")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableComponent"]
 shape = SubResource("CylinderShape3D_c6vtv")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="can_heal" from="HealthComponent" to="." method="_on_health_component_can_heal"]
 [connection signal="object_spawned" from="SpawnerComponent" to="." method="_on_spawner_component_object_spawned"]
 [connection signal="pressed" from="ClickableComponent" to="." method="_on_clickable_component_pressed"]
