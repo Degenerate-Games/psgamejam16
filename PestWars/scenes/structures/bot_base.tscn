@@ -92,6 +92,11 @@ shape = SubResource("CylinderShape3D_mhkc5")
 [node name="HealthComponent" parent="." instance=ExtResource("5_0lc3d")]
 transform = Transform3D(2.5, 0, 0, 0, -1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, 0, 0, 0)
 texture = SubResource("ViewportTexture_uyrb3")
+base_health = 10.0
+health_multiplier = 1.0
+health_color = Color(0, 0, 1, 1)
+base_heal_rate = 1.0
+heal_rate_multiplier = 1.0
 
 [node name="Button3DComponent" parent="." instance=ExtResource("6_x0yq0")]
 transform = Transform3D(10, 0, 0, 0, 5.06139, 8.62452, 0, -8.62452, 5.06139, 0, 1.78183, 0.702092)
