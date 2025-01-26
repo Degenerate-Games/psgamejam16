@@ -2,6 +2,8 @@ extends Node3D
 
 enum drag_mode { LEFT, RIGHT }
 
+@export var base_locations: Array[StaticBody3D] = []
+
 var drag_start_base: Node3D
 var drag_end_base: Node3D
 var current_drag_mode: drag_mode

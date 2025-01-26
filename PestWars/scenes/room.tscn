@@ -1,6 +1,6 @@
 [gd_scene load_steps=45 format=3 uid="uid://bbpowpqmdgrnt"]
 
-[ext_resource type="PackedScene" uid="uid://r85m48hu68fe" path="res://scenes/structures/base.tscn" id="1_wbdwb"]
+[ext_resource type="PackedScene" uid="uid://r85m48hu68fe" path="res://scenes/structures/bot_base.tscn" id="1_wbdwb"]
 [ext_resource type="ArrayMesh" uid="uid://bqxekk8xuw7q5" path="res://models/kitchenFloorTile.obj" id="2_85eiu"]
 [ext_resource type="Material" uid="uid://lmaclg581a1p" path="res://materials/kitchenMat.tres" id="3_ib05a"]
 [ext_resource type="ArrayMesh" uid="uid://ckrgk0hqkmxia" path="res://models/kitchenTable.obj" id="3_m8gu8"]
@@ -444,8 +444,9 @@ collision_mask = 6
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrrain/Furniture/kitchenTable/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ssc5t")
 
-[node name="Bases" type="Node3D" parent="Terrrain"]
+[node name="Bases" type="Node3D" parent="Terrrain" node_paths=PackedStringArray("base_locations")]
 script = ExtResource("4_5b3ia")
+base_locations = [null]
 
 [node name="BotBase" parent="Terrrain/Bases" instance=ExtResource("1_wbdwb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 0)
