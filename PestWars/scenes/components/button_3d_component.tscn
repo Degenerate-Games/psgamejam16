@@ -28,3 +28,4 @@ shape = SubResource("BoxShape3D_u07ns")
 texture = SubResource("ViewportTexture_s10k6")
 
 [connection signal="input_event" from="." to="." method="_on_button_3d_input_event"]
+[connection signal="pressed" from="SubViewport/Button" to="." method="_on_button_pressed"]
