@@ -11,8 +11,6 @@ extends VehicleBody3D
 @export var hurtbox_component: HurtboxComponent
 @export var speed_component: SpeedComponent
 
-var old_parent: Node3D
-
 var MODE: int
 
 var MODE_TRACKING = 0
@@ -80,7 +78,6 @@ func _on_navigation_agent_3d_navigation_finished():
 		return
 
 	if TARGET_NODE.get_groups().find("friendly_base") != -1:
-		old_parent = get_parent()
 		TARGET_NODE.call_deferred("add_path_follower", self)
 		MODE = MODE_FOLLOWING
 
