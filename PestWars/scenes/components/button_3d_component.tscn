@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ockkm5h27mwu"]
+
+[ext_resource type="Script" path="res://scripts/components/button_3d_component.gd" id="1_lt26l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u07ns"]
+size = Vector3(0.553467, 0.348755, 0.0894165)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_s10k6"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Button3DComponent" type="StaticBody3D" node_paths=PackedStringArray("button")]
+script = ExtResource("1_lt26l")
+button = NodePath("SubViewport/Button")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(49, 31)
+
+[node name="Button" type="Button" parent="SubViewport"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Store"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00598145, -0.00189209, -0.0357971)
+shape = SubResource("BoxShape3D_u07ns")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("ViewportTexture_s10k6")
+
+[connection signal="input_event" from="." to="." method="_on_button_3d_input_event"]
