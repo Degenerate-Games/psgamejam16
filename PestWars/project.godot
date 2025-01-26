@@ -20,6 +20,14 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[global_group]
+
+base_navigation_mesh_source_group=""
+climb_navigation_mesh_source_group=""
+bot_base=""
+enemy_base=""
+neutral_base=""
+
 [input]
 
 camera_forward={
