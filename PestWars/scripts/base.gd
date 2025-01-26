@@ -65,3 +65,20 @@ func _on_health_component_can_heal() -> void:
 		var unit = path_follower.get_child(0)
 		health_component.heal(unit.hurtbox_component.get_damage())
 		path_follower.queue_free()
+
+
+func _on_input_event(_camera:Node, event:InputEvent, _event_position:Vector3, _normal:Vector3, _shape_idx:int) -> void:
+	if event is InputEventMouse:
+		if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
+			if event.is_pressed():
+				get_parent().start_drag(self, get_parent().drag_mode.LEFT)
+			else:
+				if get_parent().drag_start_base != null and get_parent().drag_mode == get_parent().drag_mode.LEFT:
+					get_parent().end_drag(self)
+		elif event.button_mask == MOUSE_BUTTON_MASK_RIGHT:
+			if event.is_pressed():
+				get_parent().start_drag(self, get_parent().drag_mode.RIGHT)
+			else:
+				if get_parent().drag_start_base != null and get_parent().drag_mode == get_parent().drag_mode.RIGHT:
+					get_parent().end_drag(self)
+		

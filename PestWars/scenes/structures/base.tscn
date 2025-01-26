@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://r85m48hu68fe"]
 
-[ext_resource type="Script" path="res://scripts/bot_base.gd" id="1_vu2ga"]
+[ext_resource type="Script" path="res://scripts/base.gd" id="1_vu2ga"]
 [ext_resource type="Material" uid="uid://b64y6g61ojwx3" path="res://materials/botMat.tres" id="1_xr0vt"]
 [ext_resource type="ArrayMesh" uid="uid://cqnydra2y4gly" path="res://models/botBase.obj" id="2_o8n02"]
 [ext_resource type="PackedScene" uid="uid://d2pf8pqkev1q1" path="res://scenes/components/hitbox_component.tscn" id="4_x8hve"]
@@ -63,7 +63,7 @@ item = ExtResource("10_sq8b7")
 base_cost = 300
 cost_multiplier = 1.8
 
-[node name="BotBase" type="StaticBody3D" node_paths=PackedStringArray("health_component", "spawner_component", "store_component") groups=["friendly_base"]]
+[node name="BotBase" type="StaticBody3D" node_paths=PackedStringArray("health_component", "spawner_component", "store_component")]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_vu2ga")
@@ -106,6 +106,7 @@ store_items = Array[ExtResource("8_mwfx6")]([SubResource("Resource_gxypc"), SubR
 [node name="SpawnerComponent" parent="." instance=ExtResource("9_wqfvm")]
 spawn_object = ExtResource("10_81o3w")
 
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="can_heal" from="HealthComponent" to="." method="_on_health_component_can_heal"]
 [connection signal="pressed" from="Button3DComponent" to="." method="_on_button_3d_component_pressed"]
 [connection signal="object_spawned" from="SpawnerComponent" to="." method="_on_spawner_component_object_spawned"]
