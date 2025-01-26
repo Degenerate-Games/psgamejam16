@@ -2,3 +2,4 @@
 .godot/
 addons/debug_draw_3d/examples_dd3d
 ~*.*
+.venv
