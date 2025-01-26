@@ -9,13 +9,6 @@ class_name Base
 var path_followers = []
 
 
-func _ready() -> void:
-	if health_component:
-		health_component.connect("can_heal", _on_health_component_can_heal)
-	if spawner_component:
-		spawner_component.connect("object_spawned", _on_spawner_component_object_spawned)
-		
-
 func add_path_follower(node: Node3D) -> PathFollow3D:
 	var path_follower: PathFollow3D = PathFollow3D.new()
 	node.get_parent().remove_child(node)
