@@ -31,6 +31,5 @@ func set_spawn_rate_multiplier(multiplier: float) -> void:
 	var percentage_complete = spawn_timer.time_left / spawn_timer.wait_time
 	var new_wait_time = 1.0 / (spawn_rate * spawn_rate_multiplier)
 	spawn_timer.wait_time = new_wait_time * (1 - percentage_complete)
-	print(new_wait_time)
 	if spawn_timer.is_stopped():
 		spawn_timer.start()
