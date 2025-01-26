@@ -21,12 +21,6 @@ func _ready():
 		MODE = MODE_TRACKING
 
 
-func _process(_delta) -> void:
-	if MODE == MODE_FOLLOWING:
-		if TARGET_NODE != null and TARGET_NODE.is_inside_tree():
-			MODE = MODE_TRACKING
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if MODE == MODE_TRACKING:
@@ -51,6 +45,12 @@ func _physics_process(delta):
 		TARGET_NODE = null
 		velocity = Vector3.ZERO
 		get_parent().progress_ratio += 0.001
+
+
+func set_target(target: Node3D) -> void:
+	TARGET_NODE = target
+	navigation_agent.target_position = target.global_transform.origin
+	MODE = MODE_TRACKING
 
 
 func _on_navigation_agent_3d_navigation_finished():

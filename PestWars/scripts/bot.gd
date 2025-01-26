@@ -73,11 +73,14 @@ func _physics_process(_delta):
 		steering = 0
 
 
-func _on_navigation_agent_3d_navigation_finished():
-	if MODE != MODE_TRACKING:
-		return
+func set_target(target: Node3D) -> void:
+	TARGET_NODE = target
+	navigation_agent.target_position = TARGET_NODE.global_transform.origin
+	MODE = MODE_TRACKING
 
-	if TARGET_NODE.get_groups().find("friendly_base") != -1:
+
+func _on_navigation_agent_3d_navigation_finished():
+	if TARGET_NODE.get_groups().find("bot_base") != -1:
 		TARGET_NODE.call_deferred("add_path_follower", self)
 		MODE = MODE_FOLLOWING
 
