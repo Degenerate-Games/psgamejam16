@@ -23,7 +23,7 @@ radius = 6.45006
 [sub_resource type="ViewportTexture" id="ViewportTexture_uyrb3"]
 viewport_path = NodePath("SubViewport")
 
-[node name="NeutralBase" type="StaticBody3D" node_paths=PackedStringArray("health_component")]
+[node name="NeutralBase" type="StaticBody3D" node_paths=PackedStringArray("health_component") groups=["neutral_base"]]
 collision_layer = 32
 collision_mask = 6
 script = ExtResource("1_q2kya")
