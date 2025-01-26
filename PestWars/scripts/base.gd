@@ -1,8 +1,8 @@
 extends StaticBody3D
+class_name Base
 
 @export var health_component: HealthComponent
 @export var spawner_component: SpawnerComponent
-@export var store_component: StoreComponent
 
 @onready var path = $Path3D
 
@@ -10,10 +10,11 @@ var path_followers = []
 
 
 func _ready() -> void:
-	health_component.connect("can_heal", _on_health_component_can_heal)
-	spawner_component.connect("object_spawned", _on_spawner_component_object_spawned)
-	store_component.connect("store_item_bought", _on_store_component_store_item_bought)
-
+	if health_component:
+		health_component.connect("can_heal", _on_health_component_can_heal)
+	if spawner_component:
+		spawner_component.connect("object_spawned", _on_spawner_component_object_spawned)
+		
 
 func add_path_follower(node: Node3D) -> PathFollow3D:
 	var path_follower: PathFollow3D = PathFollow3D.new()
@@ -22,7 +23,6 @@ func add_path_follower(node: Node3D) -> PathFollow3D:
 	path_follower.add_child(node)
 	path_followers.append(path_follower)
 	path.add_child(path_follower)
-	store_component.update_currency(1)
 	return path_follower
 
 
@@ -30,33 +30,11 @@ func remove_path_follower() -> PathFollow3D:
 	if path_followers.size() == 0:
 		return null
 	
-	store_component.update_currency(-1)
 	return path_followers.pop_back()
 
 
-func _on_button_3d_component_pressed() -> void:
-	store_component.show()
-
-
 func _on_spawner_component_object_spawned(object: Node3D) -> void:
-	object.hurtbox_component.set_damage_multiplier(store_component.get_upgrade_scale("Unit Damage"))
-	object.speed_component.set_speed_multiplier(store_component.get_upgrade_scale("Unit Speed"))
-	object.TARGET_NODE = null
 	add_path_follower(object)
-
-
-func _on_store_component_store_item_bought(store_item: StoreItem) -> void:
-	print("Store item bought:", store_item.item.name)
-	for i in store_item.get_cost():
-		var path_follower = remove_path_follower()
-		path_follower.queue_free()
-		
-	if store_item.item.name == "Spawn Rate":
-		spawner_component.set_spawn_rate_multiplier(store_item.item.get_scaling())
-	elif store_item.item.name == "Base Health":
-		health_component.set_health_multiplier(store_item.item.get_scaling())
-	elif store_item.item.name == "Base Heal Speed":
-		health_component.set_heal_speed_multiplier(store_item.item.get_scaling())
 
 
 func _on_health_component_can_heal() -> void:
