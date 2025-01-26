@@ -495,6 +495,8 @@ TARGET_NODE = NodePath("../../Terrrain/Bases/BotBase")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7223, 1.25872, -38)
 TARGET_NODE = NodePath("../../Terrrain/Bases/BotBase")
 
+[node name="Units" type="Node3D" parent="."]
+
 [node name="Navigation" type="Node3D" parent="."]
 
 [node name="BaseMesh" type="NavigationRegion3D" parent="Navigation"]
@@ -514,7 +516,6 @@ light_energy = 2.0
 shadow_enabled = true
 
 [node name="CameraBase" parent="." instance=ExtResource("7_5sf1f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.4612, 0, 8.69467)
 camera_can_rotate_base = false
 camera_can_rotate_socket = false
 camera_can_rotate_with_mouse = false
