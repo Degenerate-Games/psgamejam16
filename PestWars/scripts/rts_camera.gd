@@ -111,16 +111,8 @@ func camera_manual_pan(delta: float) -> void:
 		direction -= transform.basis.x
 
 	var new_position = position + direction.normalized() * camera_manual_pan_speed * delta
-	new_position.x = clamp(
-		new_position.x,
-		camera_safe_pan_zone.position.x,
-		camera_safe_pan_zone.position.x + camera_safe_pan_zone.size.x
-	)
-	new_position.z = clamp(
-		new_position.z,
-		camera_safe_pan_zone.position.y,
-		camera_safe_pan_zone.position.y + camera_safe_pan_zone.size.y
-	)
+	new_position.x = clamp(new_position.x, camera_safe_pan_zone.position.x, camera_safe_pan_zone.position.x + camera_safe_pan_zone.size.x)
+	new_position.z = clamp(new_position.z, camera_safe_pan_zone.position.y, camera_safe_pan_zone.position.y + camera_safe_pan_zone.size.y)
 	position = new_position
 
 
@@ -149,18 +141,12 @@ func camera_automatic_pan(delta: float) -> void:
 
 	var zoom_factor = camera.position.z * 0.1
 
-	if (
-		current_mouse_position.x < camera_automatic_pan_margin
-		or current_mouse_position.x > viewport_size.x - camera_automatic_pan_margin
-	):
+	if current_mouse_position.x < camera_automatic_pan_margin or current_mouse_position.x > viewport_size.x - camera_automatic_pan_margin:
 		if current_mouse_position.x > viewport_size.x / 2:
 			pan_direction.x = 1
 		translate(Vector3(pan_direction.x * camera_automatic_pan_speed * zoom_factor * delta, 0, 0))
 
-	if (
-		current_mouse_position.y < camera_automatic_pan_margin
-		or current_mouse_position.y > viewport_size.y - camera_automatic_pan_margin
-	):
+	if current_mouse_position.y < camera_automatic_pan_margin or current_mouse_position.y > viewport_size.y - camera_automatic_pan_margin:
 		if current_mouse_position.y > viewport_size.y / 2:
 			pan_direction.y = 1
 		translate(Vector3(0, 0, pan_direction.y * camera_automatic_pan_speed * zoom_factor * delta))

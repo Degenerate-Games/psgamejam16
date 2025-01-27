@@ -1,5 +1,5 @@
-extends Area3D
 class_name HurtboxComponent
+extends Area3D
 
 @export var base_damage: float = 1.0
 @export var damage_multiplier: float = 1.0

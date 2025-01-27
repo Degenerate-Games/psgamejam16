@@ -1,5 +1,8 @@
-extends Node3D
 class_name SpawnerComponent
+extends Node3D
+
+## Emitted when the spawner spawns an object.
+signal object_spawned(object: Node3D)
 
 ## The rate per second at which the spawner spawns objects. Not meant to be modified while the game is running.
 @export var spawn_rate: float = 1.0
@@ -9,9 +12,6 @@ class_name SpawnerComponent
 @export var spawn_object: PackedScene
 
 @onready var spawn_timer: Timer = $Timer
-
-## Emitted when the spawner spawns an object.
-signal object_spawned(object: Node3D)
 
 
 # Called when the node enters the scene tree for the first time.

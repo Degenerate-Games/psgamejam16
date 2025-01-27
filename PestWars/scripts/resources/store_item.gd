@@ -1,5 +1,5 @@
-extends Resource
 class_name StoreItem
+extends Resource
 
 @export var item: Upgrade
 @export var base_cost: int
@@ -17,8 +17,7 @@ func get_cost() -> int:
 func get_cost_at_level(level: int) -> int:
 	if level <= 0 or level > item.max_level:
 		return -1
-	else:
-		return round(base_cost * pow(cost_multiplier, level - 1))
+	return round(base_cost * pow(cost_multiplier, level - 1))
 
 
 func buy() -> void:

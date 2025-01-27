@@ -1,5 +1,7 @@
-extends PanelContainer
 class_name StoreComponent
+extends PanelContainer
+
+signal store_item_bought(store_item: StoreItem)
 
 @export_group("Store Labels")
 @export var store_name: String
@@ -8,13 +10,9 @@ class_name StoreComponent
 @export var store_items: Array[StoreItem]
 
 @onready var store_name_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/StoreNameLabel
-@onready
-var currency_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VFlowContainer/CurrencyNameLabel
-@onready
-var current_currency_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VFlowContainer/CurrencyAmountLabel
+@onready var currency_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VFlowContainer/CurrencyNameLabel
+@onready var current_currency_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VFlowContainer/CurrencyAmountLabel
 @onready var store_items_container: GridContainer = $MarginContainer/VBoxContainer/GridContainer
-
-signal store_item_bought(store_item: StoreItem)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -79,5 +77,4 @@ func get_upgrade_scale(upgrade_name: String) -> float:
 	var upgrade = get_upgrade(upgrade_name)
 	if upgrade != null:
 		return upgrade.get_scaling()
-	else:
-		return -1.0
+	return -1.0

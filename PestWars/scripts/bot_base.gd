@@ -30,9 +30,7 @@ func send_units(target: Node3D, percentage: float, new_parent: Node3D) -> void:
 		unit.reparent(new_parent, true)
 		unit.set_target(target)
 		unit.rotate_y(randf_range(0, TAU))
-		unit.hurtbox_component.set_damage_multiplier(
-			store_component.get_upgrade_scale("Unit Damage")
-		)
+		unit.hurtbox_component.set_damage_multiplier(store_component.get_upgrade_scale("Unit Damage"))
 		unit.speed_component.set_speed_multiplier(store_component.get_upgrade_scale("Unit Speed"))
 
 

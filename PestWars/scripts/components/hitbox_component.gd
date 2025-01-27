@@ -1,5 +1,5 @@
-extends Area3D
 class_name HitboxComponent
+extends Area3D
 
 @export var health_component: HealthComponent
 var health: float

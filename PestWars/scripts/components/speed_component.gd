@@ -1,5 +1,5 @@
-extends Node3D
 class_name SpeedComponent
+extends Node3D
 
 @export var base_speed: float = 10.0
 @export var speed_multiplier: float = 1.0

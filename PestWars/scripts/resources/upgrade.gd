@@ -1,5 +1,5 @@
-extends Resource
 class_name Upgrade
+extends Resource
 
 ## The name of the upgrade.
 @export var name: String
@@ -15,10 +15,7 @@ var current_level: int = 1
 
 func _ready():
 	if use_advanced_scaling:
-		assert(
-			advanced_scaling.size() == max_level,
-			"Advanced scaling array must have the same size as the max level of the upgrade."
-		)
+		assert(advanced_scaling.size() == max_level, "Advanced scaling array must have the same size as the max level of the upgrade.")
 
 
 func get_scaling() -> float:
@@ -28,13 +25,11 @@ func get_scaling() -> float:
 func get_scaling_at_level(level: int) -> float:
 	if use_advanced_scaling:
 		return advanced_scaling[level - 1]
-	else:
-		return level
+	return level
 
 
 func upgrade() -> bool:
 	if current_level < max_level:
 		current_level += 1
 		return true
-	else:
-		return false
+	return false

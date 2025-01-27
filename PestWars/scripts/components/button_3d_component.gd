@@ -1,14 +1,12 @@
-extends StaticBody3D
 class_name Button3DComponent
-
-@export var button: Button
+extends StaticBody3D
 
 signal pressed
 
+@export var button: Button
 
-func _on_button_3d_input_event(
-	_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int
-) -> void:
+
+func _on_button_3d_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			button.emit_signal("pressed")

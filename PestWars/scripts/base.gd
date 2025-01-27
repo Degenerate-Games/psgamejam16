@@ -1,12 +1,12 @@
-extends StaticBody3D
 class_name Base
+extends StaticBody3D
 
 @export var health_component: HealthComponent
 @export var spawner_component: SpawnerComponent
 
-@onready var path = $Path3D
-
 var path_followers = []
+
+@onready var path = $Path3D
 
 
 func add_path_follower(node: Node3D) -> PathFollow3D:
@@ -57,14 +57,8 @@ func _on_clickable_component_pressed(event: InputEvent) -> void:
 
 func _on_clickable_component_released(event: InputEvent) -> void:
 	if event.button_index == MOUSE_BUTTON_LEFT:
-		if (
-			get_parent().drag_start_base != null
-			and get_parent().current_drag_mode == get_parent().drag_mode.LEFT
-		):
+		if get_parent().drag_start_base != null and get_parent().current_drag_mode == get_parent().drag_mode.LEFT:
 			get_parent().end_drag(self)
 	elif event.button_index == MOUSE_BUTTON_RIGHT:
-		if (
-			get_parent().drag_start_base != null
-			and get_parent().current_drag_mode == get_parent().drag_mode.RIGHT
-		):
+		if get_parent().drag_start_base != null and get_parent().current_drag_mode == get_parent().drag_mode.RIGHT:
 			get_parent().end_drag(self)

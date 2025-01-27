@@ -1,5 +1,7 @@
-extends Node3D
 class_name HealthComponent
+extends Node3D
+
+signal can_heal
 
 @export var base_health: float = 10.0
 @export var health_multiplier: float = 1.0
@@ -11,8 +13,6 @@ var health: float
 
 @onready var health_bar: TextureProgressBar = $SubViewport/TextureProgressBar
 @onready var heal_timer: Timer = $Timer
-
-signal can_heal
 
 
 # Called when the node enters the scene tree for the first time.
