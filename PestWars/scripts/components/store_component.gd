@@ -7,12 +7,12 @@ class_name StoreComponent
 @export var current_currency: int
 @export var store_items: Array[StoreItem]
 
-
 @onready var store_name_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/StoreNameLabel
-@onready var currency_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VFlowContainer/CurrencyNameLabel
-@onready var current_currency_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VFlowContainer/CurrencyAmountLabel
+@onready
+var currency_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VFlowContainer/CurrencyNameLabel
+@onready
+var current_currency_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VFlowContainer/CurrencyAmountLabel
 @onready var store_items_container: GridContainer = $MarginContainer/VBoxContainer/GridContainer
-
 
 signal store_item_bought(store_item: StoreItem)
 
@@ -44,7 +44,7 @@ func _ready() -> void:
 		store_item.item_name_button = store_item_button
 		store_item.item_level_label = store_item_level_label
 		store_item.item_cost_label = store_item_cost_label
-	
+
 	hide()
 
 

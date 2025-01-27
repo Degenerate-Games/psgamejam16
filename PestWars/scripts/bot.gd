@@ -17,7 +17,6 @@ var MODE_TRACKING = 0
 var MODE_FOLLOWING = 1
 var MODE_IDLE = 2
 
-
 @onready var animation_controller: AnimationPlayer = $AnimationPlayer
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
@@ -29,7 +28,7 @@ func _ready():
 	else:
 		navigation_agent.target_position = TARGET_NODE.global_transform.origin
 		MODE = MODE_TRACKING
-	pass # Replace with function body.
+	pass  # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,10 +44,12 @@ func _physics_process(_delta):
 			var next_position = navigation_agent.get_next_path_position()
 			var direction = next_position - global_transform.origin
 			direction = direction.normalized()
-			var steering_angle = signed_angle_between(direction, global_transform.basis.z, global_transform.basis.y)
+			var steering_angle = signed_angle_between(
+				direction, global_transform.basis.z, global_transform.basis.y
+			)
 			steering_angle = clamp(steering_angle, -MAX_STEERING_ANGLE, MAX_STEERING_ANGLE)
 			steering = steering_angle
-			
+
 			engine_force = ENGINE_POWER
 			if linear_velocity.length() > speed_component.get_max_speed():
 				engine_force = 0

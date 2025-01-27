@@ -9,6 +9,7 @@ var item_name_button: Button
 var item_level_label: Label
 var item_cost_label: Label
 
+
 func get_cost() -> int:
 	return get_cost_at_level(item.current_level)
 

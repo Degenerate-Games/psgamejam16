@@ -12,7 +12,6 @@
 
 extends Node3D
 
-
 @export_group("Camera Movement Settings")
 ## The speed at which the camera moves when the camera_forward, camera_backward, camera_right, and camera_left actions are pressed.
 @export_range(0, 100, 1) var camera_manual_pan_speed: float = 20.0
@@ -83,12 +82,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera_zoom_direction = -1.0
 	elif event.is_action("camera_zoom_out"):
 		camera_zoom_direction = 1.0
-	
+
 	if event.is_action("camera_rotate_left"):
 		camera_rotation_direction = 1.0
 	elif event.is_action("camera_rotate_right"):
 		camera_rotation_direction = -1.0
-	
+
 	if event.is_action_pressed("camera_rotate"):
 		mouse_last_position = get_viewport().get_mouse_position()
 		camera_rotating_with_mouse = true
@@ -98,24 +97,38 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Pans the camera manually using the camera_forward, camera_backward, camera_right, and camera_left actions.
 func camera_manual_pan(delta: float) -> void:
-	if !camera_can_manual_pan: return
+	if !camera_can_manual_pan:
+		return
 	var direction: Vector3 = Vector3.ZERO
 
-	if Input.is_action_pressed("camera_forward"): direction -= transform.basis.z
-	if Input.is_action_pressed("camera_backward"): direction += transform.basis.z
-	if Input.is_action_pressed("camera_right"): direction += transform.basis.x
-	if Input.is_action_pressed("camera_left"): direction -= transform.basis.x
+	if Input.is_action_pressed("camera_forward"):
+		direction -= transform.basis.z
+	if Input.is_action_pressed("camera_backward"):
+		direction += transform.basis.z
+	if Input.is_action_pressed("camera_right"):
+		direction += transform.basis.x
+	if Input.is_action_pressed("camera_left"):
+		direction -= transform.basis.x
 
 	var new_position = position + direction.normalized() * camera_manual_pan_speed * delta
-	new_position.x = clamp(new_position.x, camera_safe_pan_zone.position.x, camera_safe_pan_zone.position.x + camera_safe_pan_zone.size.x)
-	new_position.z = clamp(new_position.z, camera_safe_pan_zone.position.y, camera_safe_pan_zone.position.y + camera_safe_pan_zone.size.y)
+	new_position.x = clamp(
+		new_position.x,
+		camera_safe_pan_zone.position.x,
+		camera_safe_pan_zone.position.x + camera_safe_pan_zone.size.x
+	)
+	new_position.z = clamp(
+		new_position.z,
+		camera_safe_pan_zone.position.y,
+		camera_safe_pan_zone.position.y + camera_safe_pan_zone.size.y
+	)
 	position = new_position
 
 
 # Zooms the camera in and out based on the value of camera_zoom_speed.
 func camera_zoom_update(delta: float) -> void:
-	if !camera_can_zoom: return
-	
+	if !camera_can_zoom:
+		return
+
 	var new_zoom: float = camera.position.z + camera_zoom_direction * camera_zoom_speed * delta
 	new_zoom = clamp(new_zoom, camera_zoom_min, camera_zoom_max)
 	camera.position.z = new_zoom
@@ -125,7 +138,8 @@ func camera_zoom_update(delta: float) -> void:
 
 # Pans the camera automatically when the mouse is near the edge of the screen.
 func camera_automatic_pan(delta: float) -> void:
-	if !camera_can_automatic_pan: return
+	if !camera_can_automatic_pan:
+		return
 
 	var viewport_current = get_viewport()
 	var pan_direction = Vector2(-1, -1)
@@ -135,12 +149,18 @@ func camera_automatic_pan(delta: float) -> void:
 
 	var zoom_factor = camera.position.z * 0.1
 
-	if current_mouse_position.x < camera_automatic_pan_margin or current_mouse_position.x > viewport_size.x - camera_automatic_pan_margin:
+	if (
+		current_mouse_position.x < camera_automatic_pan_margin
+		or current_mouse_position.x > viewport_size.x - camera_automatic_pan_margin
+	):
 		if current_mouse_position.x > viewport_size.x / 2:
 			pan_direction.x = 1
 		translate(Vector3(pan_direction.x * camera_automatic_pan_speed * zoom_factor * delta, 0, 0))
-	
-	if current_mouse_position.y < camera_automatic_pan_margin or current_mouse_position.y > viewport_size.y - camera_automatic_pan_margin:
+
+	if (
+		current_mouse_position.y < camera_automatic_pan_margin
+		or current_mouse_position.y > viewport_size.y - camera_automatic_pan_margin
+	):
 		if current_mouse_position.y > viewport_size.y / 2:
 			pan_direction.y = 1
 		translate(Vector3(0, 0, pan_direction.y * camera_automatic_pan_speed * zoom_factor * delta))
@@ -148,7 +168,8 @@ func camera_automatic_pan(delta: float) -> void:
 
 # Updates the camera rotation around the base based on the value of camera_rotation_direction.
 func camera_base_rotate_update(delta: float) -> void:
-	if !camera_can_rotate_base: return
+	if !camera_can_rotate_base:
+		return
 
 	camera_base_rotate(delta, camera_rotation_direction)
 	camera_rotation_direction *= camera_rotation_dampener
@@ -156,14 +177,16 @@ func camera_base_rotate_update(delta: float) -> void:
 
 # Rotates the camera around the base.
 func camera_base_rotate(delta: float, dir: float) -> void:
-	if !camera_can_rotate_base: return
+	if !camera_can_rotate_base:
+		return
 
 	rotation.y += dir * camera_rotation_speed * delta
 
 
 # Rotates the camera around the socket.
 func camera_socket_rotate(delta: float, dir: float) -> void:
-	if !camera_can_rotate_socket: return
+	if !camera_can_rotate_socket:
+		return
 
 	var new_rotation = camera_socket.rotation.x + dir * camera_rotation_speed * delta
 	new_rotation = clamp(new_rotation, camera_socket_rotation_min, camera_socket_rotation_max)
@@ -173,7 +196,8 @@ func camera_socket_rotate(delta: float, dir: float) -> void:
 
 # Rotates the camera around the base and socket using the mouse.
 func camera_rotate_with_mouse(delta: float) -> void:
-	if !camera_can_rotate_with_mouse or !camera_rotating_with_mouse: return
+	if !camera_can_rotate_with_mouse or !camera_rotating_with_mouse:
+		return
 
 	var mouse_offset = get_viewport().get_mouse_position() - mouse_last_position
 	mouse_last_position = get_viewport().get_mouse_position()

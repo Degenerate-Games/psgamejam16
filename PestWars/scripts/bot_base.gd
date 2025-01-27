@@ -1,6 +1,5 @@
 extends Base
 
-
 @export var store_component: StoreComponent
 
 
@@ -31,7 +30,9 @@ func send_units(target: Node3D, percentage: float, new_parent: Node3D) -> void:
 		unit.reparent(new_parent, true)
 		unit.set_target(target)
 		unit.rotate_y(randf_range(0, TAU))
-		unit.hurtbox_component.set_damage_multiplier(store_component.get_upgrade_scale("Unit Damage"))
+		unit.hurtbox_component.set_damage_multiplier(
+			store_component.get_upgrade_scale("Unit Damage")
+		)
 		unit.speed_component.set_speed_multiplier(store_component.get_upgrade_scale("Unit Speed"))
 
 
@@ -49,7 +50,7 @@ func _on_store_component_store_item_bought(store_item: StoreItem) -> void:
 	for i in store_item.get_cost():
 		var path_follower = remove_path_follower()
 		path_follower.queue_free()
-		
+
 	if store_item.item.name == "Spawn Rate":
 		spawner_component.set_spawn_rate_multiplier(store_item.item.get_scaling())
 	elif store_item.item.name == "Base Health":

@@ -33,6 +33,7 @@ func spawn_no_signal() -> Node3D:
 	add_child(new_object)
 	return new_object
 
+
 func set_spawn_rate_multiplier(multiplier: float) -> void:
 	spawn_rate_multiplier = multiplier
 	var percentage_complete = spawn_timer.time_left / spawn_timer.wait_time

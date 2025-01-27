@@ -1,6 +1,6 @@
 extends Node3D
 
-enum drag_mode {LEFT, RIGHT}
+enum drag_mode { LEFT, RIGHT }
 
 @export var base_locations: Array[StaticBody3D] = []
 @export var units_parent: Node3D = self
@@ -9,9 +9,11 @@ var drag_start_base: Node3D
 var drag_end_base: Node3D
 var current_drag_mode: drag_mode
 
+
 func start_drag(drag_base: Node3D, mode: drag_mode) -> void:
 	drag_start_base = drag_base
 	current_drag_mode = mode
+
 
 func end_drag(drag_base: Node3D) -> void:
 	drag_end_base = drag_base

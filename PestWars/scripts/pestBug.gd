@@ -13,6 +13,7 @@ var MODE_TRACKING = 0
 var MODE_FOLLOWING = 1
 var MODE_IDLE = 2
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if TARGET_NODE == null:

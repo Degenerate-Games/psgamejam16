@@ -1,7 +1,6 @@
 extends Area3D
 class_name HurtboxComponent
 
-
 @export var base_damage: float = 1.0
 @export var damage_multiplier: float = 1.0
 @export var hits_allowed: int = 1
@@ -24,13 +23,13 @@ func get_damage() -> float:
 	return base_damage * damage_multiplier
 
 
-func _on_area_entered(area:Area3D) -> void:
+func _on_area_entered(area: Area3D) -> void:
 	if !can_damage:
 		return
 
 	if !(area is HitboxComponent):
 		return
-	
+
 	area.damage(get_damage())
 	hits_allowed -= 1
 	if hits_allowed <= 0:

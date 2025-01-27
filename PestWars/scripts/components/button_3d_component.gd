@@ -5,7 +5,10 @@ class_name Button3DComponent
 
 signal pressed
 
-func _on_button_3d_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+
+func _on_button_3d_input_event(
+	_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int
+) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			button.emit_signal("pressed")
@@ -13,5 +16,6 @@ func _on_button_3d_input_event(_camera: Node, event: InputEvent, _position: Vect
 		else:
 			button.set_pressed_no_signal(false)
 
+
 func _on_button_pressed():
-	pressed.emit();
+	pressed.emit()

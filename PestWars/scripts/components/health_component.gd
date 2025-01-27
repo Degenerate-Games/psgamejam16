@@ -1,7 +1,6 @@
 extends Node3D
 class_name HealthComponent
 
-
 @export var base_health: float = 10.0
 @export var health_multiplier: float = 1.0
 @export var health_color: Color = Color(0, 0, 1, 1)
@@ -24,12 +23,14 @@ func _ready() -> void:
 	heal_timer.wait_time = 1.0 / get_heal_rate()
 	heal_timer.start()
 
+
 func get_max_health() -> float:
 	return base_health * health_multiplier
 
 
 func get_heal_rate() -> float:
 	return base_heal_rate * heal_rate_multiplier
+
 
 func set_health_multiplier(multiplier: float) -> void:
 	health_multiplier = multiplier

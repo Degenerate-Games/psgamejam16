@@ -10,13 +10,15 @@ class_name Upgrade
 ## The advanced scaling array for the upgrade. The size of the array must be the same as the max level of the upgrade if use advanced scaling is checked.
 @export var advanced_scaling: Array[float]
 
-
 var current_level: int = 1
 
 
 func _ready():
 	if use_advanced_scaling:
-		assert(advanced_scaling.size() == max_level, "Advanced scaling array must have the same size as the max level of the upgrade.")
+		assert(
+			advanced_scaling.size() == max_level,
+			"Advanced scaling array must have the same size as the max level of the upgrade."
+		)
 
 
 func get_scaling() -> float:
