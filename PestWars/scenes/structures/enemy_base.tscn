@@ -73,6 +73,7 @@ spawn_object = ExtResource("7_lwpif")
 shape = SubResource("CylinderShape3D_c6vtv")
 
 [connection signal="can_heal" from="HealthComponent" to="." method="_on_health_component_can_heal"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="object_spawned" from="SpawnerComponent" to="." method="_on_spawner_component_object_spawned"]
 [connection signal="pressed" from="ClickableComponent" to="." method="_on_clickable_component_pressed"]
 [connection signal="released" from="ClickableComponent" to="." method="_on_clickable_component_released"]

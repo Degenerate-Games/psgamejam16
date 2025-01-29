@@ -66,5 +66,6 @@ base_heal_rate = 2.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableComponent"]
 shape = SubResource("CylinderShape3D_cv054")
 
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="pressed" from="ClickableComponent" to="." method="_on_clickable_component_pressed"]
 [connection signal="released" from="ClickableComponent" to="." method="_on_clickable_component_released"]
