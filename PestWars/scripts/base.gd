@@ -51,16 +51,18 @@ func _on_health_component_can_heal() -> void:
 
 
 func _on_clickable_component_pressed(event: InputEvent) -> void:
+	var base_controller = get_tree().get_first_node_in_group("base_controller")
 	if event.button_index == MOUSE_BUTTON_LEFT:
-		get_parent().start_drag(self, get_parent().drag_mode.LEFT)
+		base_controller.start_drag(self, base_controller.DragMode.LEFT)
 	elif event.button_index == MOUSE_BUTTON_RIGHT:
-		get_parent().start_drag(self, get_parent().drag_mode.RIGHT)
+		base_controller.start_drag(self, base_controller.DragMode.RIGHT)
 
 
 func _on_clickable_component_released(event: InputEvent) -> void:
+	var base_controller = get_tree().get_first_node_in_group("base_controller")
 	if event.button_index == MOUSE_BUTTON_LEFT:
-		if get_parent().drag_start_base != null and get_parent().current_drag_mode == get_parent().drag_mode.LEFT:
-			get_parent().end_drag(self)
+		if base_controller.drag_start_base != null and base_controller.current_drag_mode == base_controller.DragMode.LEFT:
+			base_controller.end_drag(self)
 	elif event.button_index == MOUSE_BUTTON_RIGHT:
 		if base_controller.drag_start_base != null and base_controller.current_drag_mode == base_controller.DragMode.RIGHT:
 			base_controller.end_drag(self)
