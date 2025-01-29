@@ -62,7 +62,7 @@ func update_currency(amount: int) -> void:
 	current_currency_label.text = str(current_currency)
 
 	for store_item in store_items:
-		if current_currency >= store_item.get_cost():
+		if current_currency >= store_item.get_cost() and !store_item.is_max_level():
 			store_item.item_name_button.disabled = false
 		else:
 			store_item.item_name_button.disabled = true
