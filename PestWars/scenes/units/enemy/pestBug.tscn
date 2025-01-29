@@ -64,7 +64,7 @@ data = PackedVector3Array(0, -1, -0.1, 0.2283, 0, -0.0742, 0, 0, -0.24, 0, -1, -
 [sub_resource type="BoxShape3D" id="BoxShape3D_gnt45"]
 size = Vector3(1.56227, 1.71057, 2.8584)
 
-[node name="PestBug" type="CharacterBody3D" node_paths=PackedStringArray("speed_component", "hurtbox_component")]
+[node name="PestBug" type="CharacterBody3D" node_paths=PackedStringArray("speed_component", "hurtbox_component") groups=["bug", "units"]]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 collision_layer = 4
 collision_mask = 41
