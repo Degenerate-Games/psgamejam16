@@ -24,7 +24,11 @@ var current_mode: int
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if target_node == null:
-		current_mode = MODE_FOLLOWING
+		if get_parent() is PathFollow3D or get_parent() is SpawnerComponent:
+			current_mode = MODE_FOLLOWING
+		else:
+			target_node = get_tree().get_first_node_in_group("base_controller").find_closest_base(global_transform.origin, "bot_base")
+			navigation_agent.target_position = target_node.global_transform.origin
 	else:
 		navigation_agent.target_position = target_node.global_transform.origin
 		current_mode = MODE_TRACKING
