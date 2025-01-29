@@ -30,7 +30,11 @@ func _on_area_entered(area: Area3D) -> void:
 	if !(area is HitboxComponent):
 		return
 
-	area.damage(get_damage())
+	if get_parent().get_groups().find("bot") == -1: 
+		area.damage(get_damage(), "bug")
+	else:
+		area.damage(get_damage(), "bot")
+	
 	hits_allowed -= 1
 	if hits_allowed <= 0:
 		get_parent().queue_free()

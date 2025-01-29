@@ -2,7 +2,7 @@ class_name HealthComponent
 extends Node3D
 
 signal can_heal
-signal died
+signal died(attacker_team: String)
 
 @export var base_health: float = 10.0
 @export var health_multiplier: float = 1.0
@@ -58,11 +58,11 @@ func heal(amount: float) -> void:
 	update_health_bar()
 
 
-func damage(amount: float) -> void:
+func damage(amount: float, attacker_team: String) -> void:
 	health -= amount
 	update_health_bar()
 	if health <= 0:
-		died.emit()
+		died.emit(attacker_team)
 
 
 func update_health_bar() -> void:

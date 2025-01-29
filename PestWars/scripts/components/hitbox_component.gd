@@ -5,6 +5,6 @@ extends Area3D
 var health: float
 
 
-func damage(amount: float) -> void:
+func damage(amount: float, attacker_team: String) -> void:
 	if health_component:
-		health_component.damage(amount)
+		health_component.damage(amount, attacker_team)
