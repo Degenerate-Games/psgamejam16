@@ -463,31 +463,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.128244, -1.90735e-06, 39.31
 
 [node name="Bots" type="Node3D" parent="."]
 
-[node name="bot" parent="Bots" instance=ExtResource("6_ubp0d")]
+[node name="bot" parent="Bots" node_paths=PackedStringArray("target_node") instance=ExtResource("6_ubp0d")]
 transform = Transform3D(-0.877222, 0, 0.480086, 0, 1, 0, -0.480086, 0, -0.877222, 32.9172, 0.0665358, -55.2436)
+target_node = NodePath("../../Terrrain/Bases/BotBase")
 
-[node name="bot2" parent="Bots" instance=ExtResource("6_ubp0d")]
+[node name="bot2" parent="Bots" node_paths=PackedStringArray("target_node") instance=ExtResource("6_ubp0d")]
 transform = Transform3D(-0.411912, 0, -0.911224, 0, 1, 0, 0.911224, 0, -0.411912, 46.5093, 0.0665434, 62.1736)
+target_node = NodePath("../../Terrrain/Bases/BotBase")
 
-[node name="bot3" parent="Bots" instance=ExtResource("6_ubp0d")]
+[node name="bot3" parent="Bots" node_paths=PackedStringArray("target_node") instance=ExtResource("6_ubp0d")]
 transform = Transform3D(-0.411912, 0, -0.911224, 0, 1, 0, 0.911224, 0, -0.411912, -13.531, 0.0665472, 69.0737)
+target_node = NodePath("../../Terrrain/Bases/BotBase")
 
-[node name="bot4" parent="Bots" instance=ExtResource("6_ubp0d")]
+[node name="bot4" parent="Bots" node_paths=PackedStringArray("target_node") instance=ExtResource("6_ubp0d")]
 transform = Transform3D(0.114573, 0, -0.993415, 0, 1, 0, 0.993415, 0, 0.114573, 4.47673, 14.992, -36.733)
+target_node = NodePath("../../Terrrain/Bases/BotBase")
 
 [node name="Bugs" type="Node3D" parent="."]
 
-[node name="PestBug" parent="Bugs" instance=ExtResource("7_k3nt0")]
+[node name="PestBug" parent="Bugs" node_paths=PackedStringArray("target_node") instance=ExtResource("7_k3nt0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02057, 1.25872, -38)
+target_node = NodePath("../../Terrrain/Bases/EnemyBase")
 
-[node name="PestBug2" parent="Bugs" instance=ExtResource("7_k3nt0")]
+[node name="PestBug2" parent="Bugs" node_paths=PackedStringArray("target_node") instance=ExtResource("7_k3nt0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02057, 15.1911, -38)
+target_node = NodePath("../../Terrrain/Bases/EnemyBase")
 
-[node name="PestBug3" parent="Bugs" instance=ExtResource("7_k3nt0")]
+[node name="PestBug3" parent="Bugs" node_paths=PackedStringArray("target_node") instance=ExtResource("7_k3nt0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02057, 1.25872, -9.28155)
+target_node = NodePath("../../Terrrain/Bases/EnemyBase")
 
-[node name="PestBug4" parent="Bugs" instance=ExtResource("7_k3nt0")]
+[node name="PestBug4" parent="Bugs" node_paths=PackedStringArray("target_node") instance=ExtResource("7_k3nt0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7223, 1.25872, -38)
+target_node = NodePath("../../Terrrain/Bases/EnemyBase")
 
 [node name="Units" type="Node3D" parent="."]
 
