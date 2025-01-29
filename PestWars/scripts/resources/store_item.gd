@@ -26,6 +26,7 @@ func buy() -> void:
 		item_cost_label.text = str(get_cost())
 	else:
 		item_name_button.disabled = true
+		item_cost_label.text = "MAX"
 
 
 func is_max_level() -> bool:
