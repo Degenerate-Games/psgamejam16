@@ -28,6 +28,9 @@ bot_base=""
 enemy_base=""
 neutral_base=""
 base_controller=""
+bot=""
+bug=""
+units=""
 
 [input]
 
