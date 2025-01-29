@@ -51,6 +51,8 @@ func _on_close_button_pressed() -> void:
 
 
 func _on_store_item_button_pressed(store_item: StoreItem) -> void:
+	if current_currency < store_item.get_cost() or store_item.is_max_level():
+		return
 	store_item_bought.emit(store_item)
 	store_item.buy()
 
