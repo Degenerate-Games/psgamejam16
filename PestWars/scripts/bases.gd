@@ -1,9 +1,9 @@
 extends Node3D
 
-enum DragMode { LEFT, RIGHT }
+enum DragMode {LEFT, RIGHT}
 
-## An array of all the base locations in the scene. By convention the first base in the array is the player's base, the last base is the enemy's base and the rest of the bases are neutral.
-@export var base_locations: Array[StaticBody3D] = []
+## An array of all the bases in the scene. By convention the first base in the array is the player's base, the last base is the enemy's base and the rest of the bases are neutral.
+@export var bases: Array[Base] = []
 @export var units_parent: Node3D = self
 
 var drag_start_base: Node3D
@@ -16,7 +16,7 @@ var neutral_base_scene: PackedScene = preload("res://scenes/structures/neutral_b
 
 
 func _ready() -> void:
-	for base in base_locations:
+	for base in bases:
 		base.connect("base_destroyed", _on_base_destroyed)
 
 
@@ -48,18 +48,28 @@ func find_closest_base(unit_position: Vector3, base_group: String) -> Node3D:
 	return closest_base
 
 
-func _on_base_destroyed(base: Node3D) -> void:
-	print("Base Destroyed")
-	var base_index = base_locations.find(base)  # Is this getting called?
+func _on_base_destroyed(base: Node3D, attacker_team: String) -> void:
+	print("Base Destroyed", base)
+	var base_index = bases.find(base)
 	if base_index != -1:
 		if base.get_groups().has("neutral_base"):
-			# TODO: Change to attackers base
-			var new_base = neutral_base_scene.instantiate()
+			var new_base = null
+			if attacker_team == "bot":
+				new_base = bot_base_scene.instantiate()
+			elif attacker_team == "bug":
+				new_base = enemy_base_scene.instantiate()
+			
+			add_child(new_base)
 			new_base.global_transform.origin = base.global_transform.origin
-			base_locations[base_index].queue_free()
-			base_locations[base_index] = new_base
+			bases[base_index] = new_base
 		else:
 			var new_base = neutral_base_scene.instantiate()
-			new_base.global_transform.origin = base.global_transform.origin
-			base_locations[base_index].queue_free()
-			base_locations[base_index] = new_base
+			add_child(new_base)
+			new_base.global_transform = base.global_transform
+			bases[base_index] = new_base
+		
+		base.queue_free()
+		bases[base_index].connect("base_destroyed", _on_base_destroyed)
+		for unit in get_tree().get_nodes_in_group("units"):
+			if unit.target_node == base:
+				unit.set_target(bases[base_index])
