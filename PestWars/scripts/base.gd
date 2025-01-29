@@ -1,7 +1,7 @@
 class_name Base
 extends StaticBody3D
 
-signal base_destroyed(base: Node3D)
+signal base_destroyed(base: Node3D, attacker_team: String)
 
 @export var health_component: HealthComponent
 @export var spawner_component: SpawnerComponent
@@ -68,5 +68,5 @@ func _on_clickable_component_released(event: InputEvent) -> void:
 			base_controller.end_drag(self)
 
 
-func _on_health_component_died() -> void:
-	base_destroyed.emit(self)
+func _on_health_component_died(attacker_team: String) -> void:
+	base_destroyed.emit(self, attacker_team)
