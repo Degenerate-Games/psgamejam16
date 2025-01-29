@@ -27,6 +27,7 @@ climb_navigation_mesh_source_group=""
 bot_base=""
 enemy_base=""
 neutral_base=""
+base_controller=""
 
 [input]
 

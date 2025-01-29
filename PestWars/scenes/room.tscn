@@ -449,7 +449,7 @@ collision_mask = 6
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrrain/Furniture/kitchenTable/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ssc5t")
 
-[node name="Bases" type="Node3D" parent="Terrrain"]
+[node name="Bases" type="Node3D" parent="Terrrain" groups=["base_controller"]]
 script = ExtResource("4_5b3ia")
 
 [node name="BotBase" parent="Terrrain/Bases" instance=ExtResource("1_wbdwb")]
@@ -463,9 +463,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.128244, -1.90735e-06, 39.31
 
 [node name="Bots" type="Node3D" parent="."]
 
-[node name="bot" parent="Bots" node_paths=PackedStringArray("target_node") instance=ExtResource("6_ubp0d")]
+[node name="bot" parent="Bots" instance=ExtResource("6_ubp0d")]
 transform = Transform3D(-0.877222, 0, 0.480086, 0, 1, 0, -0.480086, 0, -0.877222, 32.9172, 0.0665358, -55.2436)
-target_node = NodePath("../../Terrrain/Bases/BotBase")
 
 [node name="bot2" parent="Bots" node_paths=PackedStringArray("target_node") instance=ExtResource("6_ubp0d")]
 transform = Transform3D(-0.411912, 0, -0.911224, 0, 1, 0, 0.911224, 0, -0.411912, 46.5093, 0.0665434, 62.1736)
