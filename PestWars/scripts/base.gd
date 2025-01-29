@@ -1,6 +1,8 @@
 class_name Base
 extends StaticBody3D
 
+signal base_destroyed(base: Node3D)
+
 @export var health_component: HealthComponent
 @export var spawner_component: SpawnerComponent
 
@@ -60,5 +62,9 @@ func _on_clickable_component_released(event: InputEvent) -> void:
 		if get_parent().drag_start_base != null and get_parent().current_drag_mode == get_parent().drag_mode.LEFT:
 			get_parent().end_drag(self)
 	elif event.button_index == MOUSE_BUTTON_RIGHT:
-		if get_parent().drag_start_base != null and get_parent().current_drag_mode == get_parent().drag_mode.RIGHT:
-			get_parent().end_drag(self)
+		if base_controller.drag_start_base != null and base_controller.current_drag_mode == base_controller.DragMode.RIGHT:
+			base_controller.end_drag(self)
+
+
+func _on_health_component_died() -> void:
+	base_destroyed.emit(self)
