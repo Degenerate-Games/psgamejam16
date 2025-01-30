@@ -45,12 +45,14 @@ func _physics_process(delta):
 			var direction = next_position - global_transform.origin
 			direction = direction.normalized()
 			new_velocity = direction * speed_component.get_max_speed()
-		if !is_on_floor():
-			new_velocity.y = gravity
+		# if !is_on_floor():
+		# 	new_velocity.y = gravity
 		velocity = velocity.move_toward(new_velocity, 50 * delta)
 		if velocity.length() > 0:
-			var look_at_direction = velocity.normalized()
-			look_at(global_transform.origin + look_at_direction)
+			var rot =  global_transform.basis.get_rotation_quaternion()
+			look_at(global_transform.origin + velocity.normalized())
+			var target_rot = global_transform.basis.get_rotation_quaternion()
+			rotation = rot.slerp(target_rot, 10 * delta).get_euler()
 		move_and_slide()
 	elif current_mode == MODE_FOLLOWING:
 		target_node = null
