@@ -104,7 +104,6 @@ target_desired_distance = 8.0
 path_height_offset = -0.25
 path_max_distance = 1.01
 navigation_layers = 2
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.757783, 0.887502, 1.54018e-06, 1)
 
