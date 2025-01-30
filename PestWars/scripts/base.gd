@@ -31,6 +31,8 @@ func send_units(target: Node3D, percentage: float, new_parent: Node3D) -> void:
 	var unit_count = path_followers.size()
 	if unit_count == 0:
 		return
+	if new_parent == null:
+		new_parent = get_tree().get_first_node_in_group("base_controller").units_parent
 	for i in range(floor(unit_count * percentage)):
 		remove_path_follower().queue_free()
 		var unit = spawner_component.spawn_no_signal()
