@@ -12,18 +12,23 @@ const MODE_IDLE = 2
 var current_mode: int
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var collider: CollisionShape3D = $CollisionShape3D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if target_node == null:
 		if get_parent() is PathFollow3D or get_parent() is SpawnerComponent:
+			disable_collision()
 			current_mode = MODE_FOLLOWING
 		else:
 			target_node = get_tree().get_first_node_in_group("base_controller").find_closest_base(global_transform.origin, "enemy_base")
 			navigation_agent.target_position = target_node.global_transform.origin
+			enable_collision()
+			current_mode = MODE_TRACKING
 	else:
 		navigation_agent.target_position = target_node.global_transform.origin
+		enable_collision()
 		current_mode = MODE_TRACKING
 
 
@@ -53,9 +58,24 @@ func _physics_process(delta):
 		get_parent().progress_ratio += 0.001
 
 
+func disable_collision() -> void:
+	for i in range(get_child_count()):
+		var child = get_child(i)
+		if child is CollisionShape3D:
+			child.disabled = true
+
+
+func enable_collision() -> void:
+	for i in range(get_child_count()):
+		var child = get_child(i)
+		if child is CollisionShape3D:
+			child.disabled = false
+
+
 func set_target(target: Node3D) -> void:
 	target_node = target
 	navigation_agent.target_position = target.global_transform.origin
+	enable_collision()
 	current_mode = MODE_TRACKING
 
 
@@ -65,4 +85,5 @@ func _on_navigation_agent_3d_navigation_finished():
 
 	if target_node.get_groups().find("enemy_base") != -1:
 		target_node.call_deferred("add_path_follower", self)
+		disable_collision()
 		current_mode = MODE_FOLLOWING
