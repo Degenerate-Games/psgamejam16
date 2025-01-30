@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://r85m48hu68fe"]
+[gd_scene load_steps=28 format=3 uid="uid://r85m48hu68fe"]
 
 [ext_resource type="Material" uid="uid://b64y6g61ojwx3" path="res://materials/botMat.tres" id="1_xr0vt"]
 [ext_resource type="Script" path="res://scripts/bot_base.gd" id="1_xtjxf"]
@@ -8,13 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dipfrvy2wpuqd" path="res://scenes/components/store_component.tscn" id="6_jvn85"]
 [ext_resource type="PackedScene" uid="uid://ockkm5h27mwu" path="res://scenes/components/button_3d_component.tscn" id="6_x0yq0"]
 [ext_resource type="Script" path="res://scripts/resources/store_item.gd" id="8_mwfx6"]
-[ext_resource type="Resource" uid="uid://bpq3s3dht6ofd" path="res://scripts/resources/spawn_rate_upgrade.tres" id="9_35okm"]
+[ext_resource type="Script" path="res://scripts/resources/upgrade.gd" id="9_06pfc"]
 [ext_resource type="PackedScene" uid="uid://d35ye1a8215q4" path="res://scenes/components/spawner_component.tscn" id="9_wqfvm"]
 [ext_resource type="PackedScene" uid="uid://c4nvawtptak0b" path="res://scenes/units/friendly/bot.tscn" id="10_81o3w"]
-[ext_resource type="Resource" uid="uid://kj8of1f80dvy" path="res://scripts/resources/unit_damage_upgrade.tres" id="10_sq8b7"]
-[ext_resource type="Resource" uid="uid://ccrwcnw0mc6ko" path="res://scripts/resources/unit_speed_upgrade.tres" id="11_fk8oj"]
-[ext_resource type="Resource" uid="uid://c10v2jhw0dyfs" path="res://scripts/resources/base_health_upgrade.tres" id="12_uhcoh"]
-[ext_resource type="Resource" uid="uid://cotc88n3lhwk1" path="res://scripts/resources/base_heal_speed_upgrade.tres" id="13_0q8q2"]
 [ext_resource type="PackedScene" uid="uid://b2o2tm5xnowae" path="res://scenes/components/clickable_component.tscn" id="16_qpfqn"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_x5f7x"]
@@ -34,38 +30,78 @@ radius = 6.08608
 [sub_resource type="ViewportTexture" id="ViewportTexture_uyrb3"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="Resource" id="Resource_gxypc"]
+[sub_resource type="Resource" id="Resource_ala60"]
+resource_local_to_scene = true
+script = ExtResource("9_06pfc")
+name = "Spawn Rate"
+max_level = 3
+use_advanced_scaling = false
+advanced_scaling = Array[float]([])
+
+[sub_resource type="Resource" id="Resource_ng6do"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = ExtResource("9_35okm")
+item = SubResource("Resource_ala60")
 base_cost = 200
 cost_multiplier = 2.0
 
-[sub_resource type="Resource" id="Resource_03ifb"]
+[sub_resource type="Resource" id="Resource_5i2bt"]
+resource_local_to_scene = true
+script = ExtResource("9_06pfc")
+name = "Base Health"
+max_level = 3
+use_advanced_scaling = true
+advanced_scaling = Array[float]([1.0, 1.5, 2.0])
+
+[sub_resource type="Resource" id="Resource_vt1r7"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = ExtResource("12_uhcoh")
+item = SubResource("Resource_5i2bt")
 base_cost = 400
 cost_multiplier = 3.0
 
-[sub_resource type="Resource" id="Resource_nsjgs"]
+[sub_resource type="Resource" id="Resource_mi7su"]
+resource_local_to_scene = true
+script = ExtResource("9_06pfc")
+name = "Base Heal Speed"
+max_level = 3
+use_advanced_scaling = false
+advanced_scaling = Array[float]([])
+
+[sub_resource type="Resource" id="Resource_8r4oe"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = ExtResource("13_0q8q2")
+item = SubResource("Resource_mi7su")
 base_cost = 500
 cost_multiplier = 3.0
 
-[sub_resource type="Resource" id="Resource_uhb1b"]
+[sub_resource type="Resource" id="Resource_gputf"]
+resource_local_to_scene = true
+script = ExtResource("9_06pfc")
+name = "Unit Speed"
+max_level = 3
+use_advanced_scaling = true
+advanced_scaling = Array[float]([1.0, 1.5, 2.0])
+
+[sub_resource type="Resource" id="Resource_twt66"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = ExtResource("11_fk8oj")
+item = SubResource("Resource_gputf")
 base_cost = 200
 cost_multiplier = 2.0
 
-[sub_resource type="Resource" id="Resource_weo43"]
+[sub_resource type="Resource" id="Resource_dt0be"]
+resource_local_to_scene = true
+script = ExtResource("9_06pfc")
+name = "Unit Damage"
+max_level = 3
+use_advanced_scaling = false
+advanced_scaling = Array[float]([])
+
+[sub_resource type="Resource" id="Resource_dk2dy"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = ExtResource("10_sq8b7")
+item = SubResource("Resource_dt0be")
 base_cost = 300
 cost_multiplier = 1.8
 
@@ -112,7 +148,7 @@ collision_mask = 0
 [node name="StoreComponent" parent="." instance=ExtResource("6_jvn85")]
 store_name = "Store"
 currency = "Units"
-store_items = Array[ExtResource("8_mwfx6")]([SubResource("Resource_gxypc"), SubResource("Resource_03ifb"), SubResource("Resource_nsjgs"), SubResource("Resource_uhb1b"), SubResource("Resource_weo43")])
+store_items = Array[ExtResource("8_mwfx6")]([SubResource("Resource_ng6do"), SubResource("Resource_vt1r7"), SubResource("Resource_8r4oe"), SubResource("Resource_twt66"), SubResource("Resource_dk2dy")])
 
 [node name="SpawnerComponent" parent="." instance=ExtResource("9_wqfvm")]
 spawn_object = ExtResource("10_81o3w")
