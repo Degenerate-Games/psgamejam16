@@ -42,6 +42,8 @@ func find_closest_base(unit_position: Vector3, base_group: String) -> Node3D:
 	var closest_distance = 1e6
 	for base in get_tree().get_nodes_in_group(base_group):
 		var distance = unit_position.distance_to(base.global_transform.origin)
+		if is_zero_approx(distance):
+			continue
 		if distance < closest_distance:
 			closest_base = base
 			closest_distance = distance
