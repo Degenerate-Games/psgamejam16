@@ -30,7 +30,7 @@ viewport_path = NodePath("SubViewport")
 height = 2.63742
 radius = 5.3633
 
-[node name="EnemyBase" type="StaticBody3D" node_paths=PackedStringArray("health_component", "spawner_component") groups=["enemy_base"]]
+[node name="EnemyBase" type="StaticBody3D" node_paths=PackedStringArray("health_component", "spawner_component") groups=["base_navigation_mesh_source_group", "enemy_base"]]
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_pol5s")
@@ -49,7 +49,7 @@ shape = SubResource("ConcavePolygonShape3D_kqe6k")
 [node name="Path3D" type="Path3D" parent="."]
 curve = SubResource("Curve3D_ux5ql")
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") groups=["base_navigation_mesh_source_group", "enemy_base"] instance=ExtResource("4_anp3o")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_anp3o")]
 collision_layer = 16
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
