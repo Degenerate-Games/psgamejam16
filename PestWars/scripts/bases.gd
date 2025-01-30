@@ -47,6 +47,8 @@ func find_closest_base(unit_position: Vector3, base_group: String) -> Node3D:
 		if distance < closest_distance:
 			closest_base = base
 			closest_distance = distance
+	if closest_base == null:
+		return self
 	return closest_base
 
 
