@@ -3,6 +3,7 @@ extends VehicleBody3D
 const MODE_TRACKING = 0
 const MODE_FOLLOWING = 1
 const MODE_IDLE = 2
+const MODE_REVERSING = 3
 
 @export_group("Movement Settings")
 @export_range(0, 70, 1, "radians_as_degrees") var max_steering_angle = deg_to_rad(8)
@@ -16,10 +17,12 @@ const MODE_IDLE = 2
 @export var speed_component: SpeedComponent
 
 var current_mode: int
+var previous_position: Vector3
 
 @onready var animation_controller: AnimationPlayer = $AnimationPlayer
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var collider: CollisionShape3D = $CollisionShape3D
+@onready var reverse_timer: Timer = $ReverseTimer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -43,6 +46,8 @@ func _ready():
 func _physics_process(_delta):
 	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return
+	if is_zero_approx(previous_position.distance_to(global_transform.origin)):
+				current_mode = MODE_REVERSING
 	if current_mode == MODE_TRACKING:
 		if target_node == null or !target_node.is_inside_tree():
 			current_mode = MODE_IDLE
@@ -74,10 +79,18 @@ func _physics_process(_delta):
 		engine_force = 0
 		steering = max_steering_angle
 		get_parent().progress_ratio += 0.001
+	elif current_mode == MODE_REVERSING:
+		if reverse_timer.is_stopped():
+			reverse_timer.start()
+		animation_controller.play_backwards("bot_Moving")
+		engine_force = -engine_power
+		steering = -max_steering_angle
 	else:
 		animation_controller.pause()
 		engine_force = 0
 		steering = 0
+	
+	previous_position = global_transform.origin
 
 
 func set_target(target: Node3D) -> void:
@@ -101,3 +114,7 @@ func signed_angle_between(v1: Vector3, v2: Vector3, n: Vector3) -> float:
 	if s < 0:
 		return -unsigned_angle
 	return unsigned_angle
+
+
+func _on_reverse_timer_timeout() -> void:
+	current_mode = MODE_TRACKING
