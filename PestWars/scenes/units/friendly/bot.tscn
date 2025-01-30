@@ -75,7 +75,7 @@ transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 
 material_override = ExtResource("1_hgx5d")
 mesh = ExtResource("2_pxowf")
 
-[node name="BodyCollider" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(3.82137e-16, 8.74228e-09, -0.2, 0.2, -8.74228e-09, 0, -8.74228e-09, -0.2, -8.74228e-09, 0.0945345, 0.332016, 0)
 shape = SubResource("CapsuleShape3D_0hxrx")
 
