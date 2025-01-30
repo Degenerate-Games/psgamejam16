@@ -21,7 +21,6 @@ var previous_position: Vector3
 
 @onready var animation_controller: AnimationPlayer = $AnimationPlayer
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-@onready var collider: CollisionShape3D = $CollisionShape3D
 @onready var reverse_timer: Timer = $ReverseTimer
 
 
@@ -30,15 +29,12 @@ func _ready():
 	if target_node == null:
 		if get_parent() is PathFollow3D or get_parent() is SpawnerComponent:
 			current_mode = MODE_FOLLOWING
-			collider.disabled = true
 		else:
 			target_node = get_tree().get_first_node_in_group("base_controller").find_closest_base(global_transform.origin, "bot_base")
 			navigation_agent.target_position = target_node.global_transform.origin
-			collider.disabled = false
 			current_mode = MODE_TRACKING
 	else:
 		navigation_agent.target_position = target_node.global_transform.origin
-		collider.disabled = false
 		current_mode = MODE_TRACKING
 
 
@@ -96,14 +92,12 @@ func _physics_process(_delta):
 func set_target(target: Node3D) -> void:
 	target_node = target
 	navigation_agent.target_position = target_node.global_transform.origin
-	collider.disabled = false
 	current_mode = MODE_TRACKING
 
 
 func _on_navigation_agent_3d_navigation_finished():
 	if target_node.get_groups().find("bot_base") != -1:
 		target_node.call_deferred("add_path_follower", self)
-		collider.disabled = true
 		current_mode = MODE_FOLLOWING
 
 
