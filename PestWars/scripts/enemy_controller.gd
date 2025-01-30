@@ -80,10 +80,10 @@ func choose_special_action() -> Action:
 	var action = Action.SPECIALA
 	var total_units = 0
 	for base in get_tree().get_nodes_in_group("enemy_base"):
-		total_units += base.units_parent.get_child_count()
+		total_units += base.path_followers.size()
 	var player_units = 0
 	for base in get_tree().get_nodes_in_group("bot_base"):
-		player_units += base.units_parent.get_child_count()
+		player_units += base.path_followers.size()
 	if player_units > total_units * 0.9:
 		action = Action.SPECIALA
 	elif total_units > player_units * 0.9:
