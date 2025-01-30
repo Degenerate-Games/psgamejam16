@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/resources/upgrade.gd" id="1_l1emr"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_l1emr")
 name = "Unit Speed"
 max_level = 3

@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/resources/upgrade.gd" id="1_mf5fn"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_mf5fn")
 name = "Base Health"
 max_level = 3

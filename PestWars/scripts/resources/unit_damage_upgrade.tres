@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/resources/upgrade.gd" id="1_jbsms"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_jbsms")
 name = "Unit Damage"
 max_level = 3

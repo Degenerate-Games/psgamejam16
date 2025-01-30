@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/resources/upgrade.gd" id="1_n0fqf"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_n0fqf")
 name = "Base Heal Speed"
 max_level = 3

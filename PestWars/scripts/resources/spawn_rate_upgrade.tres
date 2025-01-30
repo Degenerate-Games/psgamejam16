@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/resources/upgrade.gd" id="1_00i0l"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_00i0l")
 name = "Spawn Rate"
 max_level = 3

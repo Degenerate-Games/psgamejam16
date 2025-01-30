@@ -35,30 +35,35 @@ radius = 6.08608
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Resource" id="Resource_gxypc"]
+resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
 item = ExtResource("9_35okm")
-base_cost = 2
+base_cost = 200
 cost_multiplier = 2.0
 
 [sub_resource type="Resource" id="Resource_03ifb"]
+resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
 item = ExtResource("12_uhcoh")
 base_cost = 400
 cost_multiplier = 3.0
 
 [sub_resource type="Resource" id="Resource_nsjgs"]
+resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
 item = ExtResource("13_0q8q2")
 base_cost = 500
 cost_multiplier = 3.0
 
 [sub_resource type="Resource" id="Resource_uhb1b"]
+resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
 item = ExtResource("11_fk8oj")
 base_cost = 200
 cost_multiplier = 2.0
 
 [sub_resource type="Resource" id="Resource_weo43"]
+resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
 item = ExtResource("10_sq8b7")
 base_cost = 300
