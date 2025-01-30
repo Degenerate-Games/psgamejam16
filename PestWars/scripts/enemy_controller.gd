@@ -112,16 +112,18 @@ func choose_target_base(from_base: Node3D, action: Action) -> Node3D:
 	var base_group = ""
 
 	if action == Action.ATTACK or action == Action.SPECIALA:
-		base_group = "player_base"
+		base_group = "bot_base"
 	elif action == Action.CAPTURE:
 		base_group = "neutral_base"
 	elif action == Action.REINFORCE:
 		base_group = "enemy_base"
 	
-	var closest_base = base_controller.find_closest_base(from_base, base_group)
+	var closest_base = base_controller.find_closest_base(from_base.global_transform.origin, base_group)
+	target_base = closest_base
 	var min_units_per_distance = 1e6
+	var units_count = base_controller.units_parent.get_child_count()
 	for base in get_tree().get_nodes_in_group(base_group):
-		var units_per_distance = base.units_parent.get_child_count() / base.global_transform.origin.distance_to(closest_base.global_transform.origin)
+		var units_per_distance = units_count / base.global_transform.origin.distance_to(closest_base.global_transform.origin)
 		if units_per_distance < min_units_per_distance:
 			target_base = base
 			min_units_per_distance = units_per_distance
@@ -142,6 +144,9 @@ func _on_timer_timeout() -> void:
 	var from_base = enemy_bases[randi() % enemy_bases.size()]
 	var target_base = choose_target_base(from_base, action)
 	var send_units = [0.5, 1.0][randi() % 2]
+	if from_base == target_base:
+		start_cycle()
+		return
 	if action == Action.ATTACK or action == Action.REINFORCE or action == Action.CAPTURE:
 		from_base.send_units(target_base, send_units, base_controller.units_parent)
 	elif action == Action.SPECIALA:
