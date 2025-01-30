@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c4nvawtptak0b" path="res://scenes/units/friendly/bot.tscn" id="6_ubp0d"]
 [ext_resource type="PackedScene" uid="uid://46sktqtu1pmy" path="res://scenes/structures/enemy_base.tscn" id="7_0oqio"]
 [ext_resource type="PackedScene" uid="uid://bjsk27yiuesl2" path="res://scenes/rts_camera.tscn" id="7_5sf1f"]
-[ext_resource type="PackedScene" uid="uid://bcdl5v6f1hbfc" path="res://scenes/units/enemy/pestBug.tscn" id="7_k3nt0"]
+[ext_resource type="PackedScene" uid="uid://bcdl5v6f1hbfc" path="res://scenes/units/enemy/pest_bug.tscn" id="7_k3nt0"]
 [ext_resource type="Texture2D" uid="uid://cl6td80ui4ph2" path="res://textures/kitchen1ColorMap.png" id="7_v7i31"]
 [ext_resource type="ArrayMesh" uid="uid://cb0jr0y0jodhu" path="res://models/kitchenCornerCabinet.obj" id="8_obo02"]
 [ext_resource type="ArrayMesh" uid="uid://ch5xfgws4tj1" path="res://models/kitchenCabinet.obj" id="9_y8etl"]

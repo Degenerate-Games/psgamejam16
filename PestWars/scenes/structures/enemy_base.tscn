@@ -5,7 +5,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b2y5u3qarp66o" path="res://models/pestBase.obj" id="3_jk8bk"]
 [ext_resource type="PackedScene" uid="uid://d2pf8pqkev1q1" path="res://scenes/components/hitbox_component.tscn" id="4_anp3o"]
 [ext_resource type="PackedScene" uid="uid://bq8g11gl1b8h7" path="res://scenes/components/health_component.tscn" id="5_oxp7i"]
-[ext_resource type="PackedScene" uid="uid://bcdl5v6f1hbfc" path="res://scenes/units/enemy/pestBug.tscn" id="7_lwpif"]
+[ext_resource type="PackedScene" uid="uid://bcdl5v6f1hbfc" path="res://scenes/units/enemy/pest_bug.tscn" id="7_lwpif"]
 [ext_resource type="PackedScene" uid="uid://b2o2tm5xnowae" path="res://scenes/components/clickable_component.tscn" id="8_hb1gv"]
 [ext_resource type="PackedScene" uid="uid://d35ye1a8215q4" path="res://scenes/components/spawner_component.tscn" id="14_dcrje"]
 
