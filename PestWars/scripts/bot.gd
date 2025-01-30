@@ -46,8 +46,8 @@ func _ready():
 func _physics_process(_delta):
 	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return
-	if is_zero_approx(previous_position.distance_to(global_transform.origin)):
-				current_mode = MODE_REVERSING
+	# if is_zero_approx(previous_position.distance_to(global_transform.origin)):
+	# 			current_mode = MODE_REVERSING
 	if current_mode == MODE_TRACKING:
 		if target_node == null or !target_node.is_inside_tree():
 			current_mode = MODE_IDLE
