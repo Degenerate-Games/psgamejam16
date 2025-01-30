@@ -10,6 +10,7 @@ const MODE_IDLE = 2
 @export var hurtbox_component: HurtboxComponent
 
 var current_mode: int
+var previous_position: Vector3
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var collider: CollisionShape3D = $CollisionShape3D
@@ -34,6 +35,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if is_zero_approx(previous_position.distance_to(global_transform.origin)):
+		rotation = rotation.rotated(Vector3.UP, PI)
 	if current_mode == MODE_TRACKING:
 		if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 			return
@@ -57,6 +60,8 @@ func _physics_process(delta):
 		target_node = null
 		velocity = Vector3.ZERO
 		get_parent().progress_ratio += 0.001
+	
+	previous_position = global_transform.origin
 
 
 func disable_collision() -> void:
