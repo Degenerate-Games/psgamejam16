@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cw2qi7sdd817s"
+path="res://.godot/imported/kitchenStove.obj-d50767ab819a6092d990729ce70baa0f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/kitchenStove.obj-d50767ab819a6092d990729ce70baa0f.mesh"]
+
+source_file="res://models/kitchenStove.obj"
+dest_files=["res://.godot/imported/kitchenStove.obj-d50767ab819a6092d990729ce70baa0f.mesh", "res://.godot/imported/kitchenStove.obj-d50767ab819a6092d990729ce70baa0f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
