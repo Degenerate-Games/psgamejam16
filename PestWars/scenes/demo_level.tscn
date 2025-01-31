@@ -66,6 +66,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 200)
 [node name="5x5KitchenFloor9" parent="Floor" instance=ExtResource("1_c2q53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 0, 200)
 
+[node name="Furniture" type="Node3D" parent="." groups=["base_navigation_mesh_source_group", "climb_navigation_mesh_source_group"]]
+
 [node name="Bases" type="Node3D" parent="." node_paths=PackedStringArray("bases", "units_parent") groups=["base_controller"]]
 script = ExtResource("2_grw2s")
 bases = [NodePath("BotBase"), NodePath("NeutralBase"), NodePath("NeutralBase2"), NodePath("NeutralBase3"), NodePath("NeutralBase4"), NodePath("NeutralBase5"), NodePath("NeutralBase6"), NodePath("NeutralBase7"), NodePath("EnemyBase")]
