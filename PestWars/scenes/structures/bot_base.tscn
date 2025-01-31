@@ -30,7 +30,7 @@ radius = 6.08608
 [sub_resource type="ViewportTexture" id="ViewportTexture_uyrb3"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="Resource" id="Resource_kxq7u"]
+[sub_resource type="Resource" id="Resource_nbxuv"]
 resource_local_to_scene = true
 script = ExtResource("9_06pfc")
 name = "Spawn Rate"
@@ -38,14 +38,14 @@ max_level = 3
 use_advanced_scaling = false
 advanced_scaling = Array[float]([])
 
-[sub_resource type="Resource" id="Resource_uodgm"]
+[sub_resource type="Resource" id="Resource_oj8w5"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = SubResource("Resource_kxq7u")
+item = SubResource("Resource_nbxuv")
 base_cost = 200
 cost_multiplier = 2.0
 
-[sub_resource type="Resource" id="Resource_142vg"]
+[sub_resource type="Resource" id="Resource_8bxq1"]
 resource_local_to_scene = true
 script = ExtResource("9_06pfc")
 name = "Base Health"
@@ -53,14 +53,14 @@ max_level = 3
 use_advanced_scaling = true
 advanced_scaling = Array[float]([1.0, 1.5, 2.0])
 
-[sub_resource type="Resource" id="Resource_wypab"]
+[sub_resource type="Resource" id="Resource_s7dq4"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = SubResource("Resource_142vg")
+item = SubResource("Resource_8bxq1")
 base_cost = 400
 cost_multiplier = 3.0
 
-[sub_resource type="Resource" id="Resource_u1juj"]
+[sub_resource type="Resource" id="Resource_ciglf"]
 resource_local_to_scene = true
 script = ExtResource("9_06pfc")
 name = "Base Heal Speed"
@@ -68,14 +68,14 @@ max_level = 3
 use_advanced_scaling = false
 advanced_scaling = Array[float]([])
 
-[sub_resource type="Resource" id="Resource_urwyg"]
+[sub_resource type="Resource" id="Resource_e6klv"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = SubResource("Resource_u1juj")
+item = SubResource("Resource_ciglf")
 base_cost = 500
 cost_multiplier = 3.0
 
-[sub_resource type="Resource" id="Resource_ingct"]
+[sub_resource type="Resource" id="Resource_fa2ci"]
 resource_local_to_scene = true
 script = ExtResource("9_06pfc")
 name = "Unit Speed"
@@ -83,14 +83,14 @@ max_level = 3
 use_advanced_scaling = true
 advanced_scaling = Array[float]([1.0, 1.5, 2.0])
 
-[sub_resource type="Resource" id="Resource_8q6fq"]
+[sub_resource type="Resource" id="Resource_1np7k"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = SubResource("Resource_ingct")
+item = SubResource("Resource_fa2ci")
 base_cost = 200
 cost_multiplier = 2.0
 
-[sub_resource type="Resource" id="Resource_nlxkp"]
+[sub_resource type="Resource" id="Resource_qa6to"]
 resource_local_to_scene = true
 script = ExtResource("9_06pfc")
 name = "Unit Damage"
@@ -98,10 +98,10 @@ max_level = 3
 use_advanced_scaling = false
 advanced_scaling = Array[float]([])
 
-[sub_resource type="Resource" id="Resource_dxhps"]
+[sub_resource type="Resource" id="Resource_6sigp"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = SubResource("Resource_nlxkp")
+item = SubResource("Resource_qa6to")
 base_cost = 300
 cost_multiplier = 1.8
 
@@ -141,14 +141,14 @@ texture = SubResource("ViewportTexture_uyrb3")
 base_health = 50.0
 
 [node name="Button3DComponent" parent="." instance=ExtResource("6_x0yq0")]
-transform = Transform3D(10, 0, 0, 0, 5.06139, 8.62452, 0, -8.62452, 5.06139, 0, 1.78183, 0.702092)
+transform = Transform3D(7.07107, -6.09846, 3.57894, 0, 5.06139, 8.62452, -7.07107, -6.09846, 3.57894, 0, 1.78183, 0.702092)
 collision_layer = 64
 collision_mask = 0
 
 [node name="StoreComponent" parent="." instance=ExtResource("6_jvn85")]
 store_name = "Store"
 currency = "Units"
-store_items = Array[ExtResource("8_mwfx6")]([SubResource("Resource_uodgm"), SubResource("Resource_wypab"), SubResource("Resource_urwyg"), SubResource("Resource_8q6fq"), SubResource("Resource_dxhps")])
+store_items = Array[ExtResource("8_mwfx6")]([SubResource("Resource_oj8w5"), SubResource("Resource_s7dq4"), SubResource("Resource_e6klv"), SubResource("Resource_1np7k"), SubResource("Resource_6sigp")])
 
 [node name="SpawnerComponent" parent="." instance=ExtResource("9_wqfvm")]
 spawn_object = ExtResource("10_81o3w")
