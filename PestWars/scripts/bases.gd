@@ -1,6 +1,6 @@
 extends Node3D
 
-enum DragMode {LEFT, RIGHT}
+enum DragMode { LEFT, RIGHT }
 
 ## An array of all the bases in the scene. By convention the first base in the array is the player's base, the last base is the enemy's base and the rest of the bases are neutral.
 @export var bases: Array[Base] = []
@@ -62,7 +62,7 @@ func _on_base_destroyed(base: Node3D, attacker_team: String) -> void:
 				new_base = bot_base_scene.instantiate()
 			elif attacker_team == "bug":
 				new_base = enemy_base_scene.instantiate()
-			
+
 			add_child(new_base)
 			new_base.global_transform.origin = base.global_transform.origin
 			bases[base_index] = new_base
@@ -71,7 +71,7 @@ func _on_base_destroyed(base: Node3D, attacker_team: String) -> void:
 			add_child(new_base)
 			new_base.global_transform = base.global_transform
 			bases[base_index] = new_base
-		
+
 		base.queue_free()
 		bases[base_index].connect("base_destroyed", _on_base_destroyed)
 		for unit in get_tree().get_nodes_in_group("units"):
