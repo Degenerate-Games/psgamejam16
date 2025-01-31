@@ -13,6 +13,7 @@ var current_drag_mode: DragMode
 var bot_base_scene: PackedScene = preload("res://scenes/structures/bot_base.tscn")
 var enemy_base_scene: PackedScene = preload("res://scenes/structures/enemy_base.tscn")
 var neutral_base_scene: PackedScene = preload("res://scenes/structures/neutral_base.tscn")
+var end_screen_scene: PackedScene = preload("res://scenes/end_screen.tscn")
 
 
 func _ready() -> void:
@@ -76,3 +77,18 @@ func _on_base_destroyed(base: Node3D, attacker_team: String) -> void:
 		for unit in get_tree().get_nodes_in_group("units"):
 			if unit.target_node == base:
 				unit.set_target(bases[base_index])
+
+	check_win_loss_conditions()
+
+
+func check_win_loss_conditions() -> void:
+	var bot_base_count = get_tree().get_nodes_in_group("bot_base").size()
+	var enemy_base_count = get_tree().get_nodes_in_group("enemy_base").size()
+
+	if bot_base_count == 0:
+		var end_screen = end_screen_scene.instantiate()
+		add_child(end_screen)
+	elif enemy_base_count == 0:
+		var end_screen = end_screen_scene.instantiate()
+		end_screen.set_label_text("You win!")
+		add_child(end_screen)
