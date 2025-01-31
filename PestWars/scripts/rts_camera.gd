@@ -61,6 +61,8 @@ extends Node3D
 @export var camera_can_rotate_socket: bool = true
 ## Whether or not to allow rotating the camera around the base and socket using the mouse.
 @export var camera_can_rotate_with_mouse: bool = true
+## Whether ot not to rotate the camera around the socket when zooming in and out.
+@export var camera_use_adaptive_zoom: bool = true
 
 var camera_zoom_direction: float = 0.0
 var camera_rotation_direction: float = 0.0
@@ -128,7 +130,8 @@ func camera_zoom_update(delta: float) -> void:
 	var new_zoom: float = camera.position.z + camera_zoom_direction * camera_zoom_speed * delta
 	new_zoom = clamp(new_zoom, camera_zoom_min, camera_zoom_max)
 	camera.position.z = new_zoom
-	camera_socket.rotation.x = lerp(camera_zoom_min_angle, camera_zoom_max_angle, inverse_lerp(camera_zoom_min, camera_zoom_max, new_zoom))
+	if camera_use_adaptive_zoom:
+		camera_socket.rotation.x = lerp(camera_zoom_min_angle, camera_zoom_max_angle, inverse_lerp(camera_zoom_min, camera_zoom_max, new_zoom))
 
 	camera_zoom_direction *= camera_zoom_dampener
 
