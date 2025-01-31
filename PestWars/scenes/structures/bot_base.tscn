@@ -30,7 +30,7 @@ radius = 6.08608
 [sub_resource type="ViewportTexture" id="ViewportTexture_uyrb3"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="Resource" id="Resource_n6bwm"]
+[sub_resource type="Resource" id="Resource_mevob"]
 resource_local_to_scene = true
 script = ExtResource("9_06pfc")
 name = "Spawn Rate"
@@ -38,14 +38,14 @@ max_level = 3
 use_advanced_scaling = true
 advanced_scaling = Array[float]([1.0, 1.25, 1.5])
 
-[sub_resource type="Resource" id="Resource_rd6hp"]
+[sub_resource type="Resource" id="Resource_2wkr3"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = SubResource("Resource_n6bwm")
-base_cost = 5
-cost_multiplier = 1.5
+item = SubResource("Resource_mevob")
+base_cost = 75
+cost_multiplier = 2.0
 
-[sub_resource type="Resource" id="Resource_quj6y"]
+[sub_resource type="Resource" id="Resource_vihok"]
 resource_local_to_scene = true
 script = ExtResource("9_06pfc")
 name = "Base Health"
@@ -53,14 +53,14 @@ max_level = 3
 use_advanced_scaling = true
 advanced_scaling = Array[float]([1.0, 1.5, 2.0])
 
-[sub_resource type="Resource" id="Resource_ge0lg"]
+[sub_resource type="Resource" id="Resource_7r8vy"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = SubResource("Resource_quj6y")
-base_cost = 5
+item = SubResource("Resource_vihok")
+base_cost = 150
 cost_multiplier = 1.5
 
-[sub_resource type="Resource" id="Resource_eytu2"]
+[sub_resource type="Resource" id="Resource_v0lth"]
 resource_local_to_scene = true
 script = ExtResource("9_06pfc")
 name = "Base Heal Speed"
@@ -68,14 +68,14 @@ max_level = 3
 use_advanced_scaling = true
 advanced_scaling = Array[float]([1.0, 1.5, 2.0])
 
-[sub_resource type="Resource" id="Resource_2ly8r"]
+[sub_resource type="Resource" id="Resource_rlhia"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = SubResource("Resource_eytu2")
+item = SubResource("Resource_v0lth")
 base_cost = 200
 cost_multiplier = 1.5
 
-[sub_resource type="Resource" id="Resource_5jd8x"]
+[sub_resource type="Resource" id="Resource_q0wlf"]
 resource_local_to_scene = true
 script = ExtResource("9_06pfc")
 name = "Unit Speed"
@@ -83,14 +83,14 @@ max_level = 3
 use_advanced_scaling = true
 advanced_scaling = Array[float]([1.0, 1.5, 2.0])
 
-[sub_resource type="Resource" id="Resource_4arkv"]
+[sub_resource type="Resource" id="Resource_t5ei6"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = SubResource("Resource_5jd8x")
+item = SubResource("Resource_q0wlf")
 base_cost = 150
 cost_multiplier = 1.5
 
-[sub_resource type="Resource" id="Resource_7k0n1"]
+[sub_resource type="Resource" id="Resource_wmus4"]
 resource_local_to_scene = true
 script = ExtResource("9_06pfc")
 name = "Unit Damage"
@@ -98,10 +98,10 @@ max_level = 3
 use_advanced_scaling = false
 advanced_scaling = Array[float]([])
 
-[sub_resource type="Resource" id="Resource_sxsx8"]
+[sub_resource type="Resource" id="Resource_iq7u6"]
 resource_local_to_scene = true
 script = ExtResource("8_mwfx6")
-item = SubResource("Resource_7k0n1")
+item = SubResource("Resource_wmus4")
 base_cost = 200
 cost_multiplier = 1.8
 
@@ -149,7 +149,7 @@ collision_mask = 0
 store_name = "Store"
 currency = "Units"
 maximum_purchases = 3
-store_items = Array[ExtResource("8_mwfx6")]([SubResource("Resource_rd6hp"), SubResource("Resource_ge0lg"), SubResource("Resource_2ly8r"), SubResource("Resource_4arkv"), SubResource("Resource_sxsx8")])
+store_items = Array[ExtResource("8_mwfx6")]([SubResource("Resource_2wkr3"), SubResource("Resource_7r8vy"), SubResource("Resource_rlhia"), SubResource("Resource_t5ei6"), SubResource("Resource_iq7u6")])
 
 [node name="SpawnerComponent" parent="." instance=ExtResource("9_wqfvm")]
 spawn_object = ExtResource("10_81o3w")

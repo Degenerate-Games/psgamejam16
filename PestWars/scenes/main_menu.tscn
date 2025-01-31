@@ -1,0 +1,217 @@
+[gd_scene load_steps=19 format=3 uid="uid://bilflym5cc1yu"]
+
+[ext_resource type="PackedScene" uid="uid://fpw163yt2k64" path="res://scenes/demo_level.tscn" id="1_b2tou"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_vg6tt"]
+[ext_resource type="Texture2D" uid="uid://dt6ovvvxp1yd8" path="res://textures/menu/Camera Controls.png" id="2_fntvf"]
+[ext_resource type="Texture2D" uid="uid://1uqgujax025t" path="res://textures/menu/goal.png" id="3_8aopk"]
+[ext_resource type="Script" path="res://scripts/resources/store_item.gd" id="3_tfjau"]
+[ext_resource type="Texture2D" uid="uid://cs4vi2ecxtbxp" path="res://textures/menu/Store.png" id="4_dta6t"]
+[ext_resource type="Script" path="res://scripts/resources/upgrade.gd" id="4_lbr63"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uyrb3"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Resource" id="Resource_f0jtg"]
+resource_local_to_scene = true
+script = ExtResource("4_lbr63")
+name = "Spawn Rate"
+max_level = 3
+use_advanced_scaling = true
+advanced_scaling = Array[float]([1.0, 1.25, 1.5])
+
+[sub_resource type="Resource" id="Resource_jby53"]
+resource_local_to_scene = true
+script = ExtResource("3_tfjau")
+item = SubResource("Resource_f0jtg")
+base_cost = 75
+cost_multiplier = 2.0
+
+[sub_resource type="Resource" id="Resource_7w11n"]
+resource_local_to_scene = true
+script = ExtResource("4_lbr63")
+name = "Base Health"
+max_level = 3
+use_advanced_scaling = true
+advanced_scaling = Array[float]([1.0, 1.5, 2.0])
+
+[sub_resource type="Resource" id="Resource_w3o6n"]
+resource_local_to_scene = true
+script = ExtResource("3_tfjau")
+item = SubResource("Resource_7w11n")
+base_cost = 150
+cost_multiplier = 1.5
+
+[sub_resource type="Resource" id="Resource_r7q70"]
+resource_local_to_scene = true
+script = ExtResource("4_lbr63")
+name = "Base Heal Speed"
+max_level = 3
+use_advanced_scaling = true
+advanced_scaling = Array[float]([1.0, 1.5, 2.0])
+
+[sub_resource type="Resource" id="Resource_55pwb"]
+resource_local_to_scene = true
+script = ExtResource("3_tfjau")
+item = SubResource("Resource_r7q70")
+base_cost = 200
+cost_multiplier = 1.5
+
+[sub_resource type="Resource" id="Resource_7lgi3"]
+resource_local_to_scene = true
+script = ExtResource("4_lbr63")
+name = "Unit Speed"
+max_level = 3
+use_advanced_scaling = true
+advanced_scaling = Array[float]([1.0, 1.5, 2.0])
+
+[sub_resource type="Resource" id="Resource_utkj5"]
+resource_local_to_scene = true
+script = ExtResource("3_tfjau")
+item = SubResource("Resource_7lgi3")
+base_cost = 150
+cost_multiplier = 1.5
+
+[sub_resource type="Resource" id="Resource_of28k"]
+resource_local_to_scene = true
+script = ExtResource("4_lbr63")
+name = "Unit Damage"
+max_level = 3
+use_advanced_scaling = false
+advanced_scaling = Array[float]([])
+
+[sub_resource type="Resource" id="Resource_7d671"]
+resource_local_to_scene = true
+script = ExtResource("3_tfjau")
+item = SubResource("Resource_of28k")
+base_cost = 200
+cost_multiplier = 1.8
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vg6tt")
+
+[node name="DemoLevel" parent="." instance=ExtResource("1_b2tou")]
+
+[node name="HealthComponent" parent="DemoLevel/Bases/BotBase" index="4"]
+texture = SubResource("ViewportTexture_uyrb3")
+
+[node name="StoreComponent" parent="DemoLevel/Bases/BotBase" index="6"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -200.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 105.0
+grow_horizontal = 0
+grow_vertical = 1
+store_items = Array[ExtResource("3_tfjau")]([SubResource("Resource_jby53"), SubResource("Resource_w3o6n"), SubResource("Resource_55pwb"), SubResource("Resource_utkj5"), SubResource("Resource_7d671")])
+
+[node name="CameraBase" parent="DemoLevel" index="8"]
+camera_can_manual_pan = false
+camera_can_automatic_pan = false
+camera_can_zoom = false
+camera_use_adaptive_zoom = false
+
+[node name="Camera3D" parent="DemoLevel/CameraBase/CameraSocket" index="0"]
+transform = Transform3D(0.999976, -0.003033, 0.00624678, 0.00491026, 0.944929, -0.327237, -0.00491026, 0.32726, 0.944921, 1.14265, 15.3938, 48.0939)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -36.0
+offset_right = 50.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "How to Play"
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("2_fntvf")
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("3_8aopk")
+
+[node name="TextureRect3" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("4_dta6t")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -51.0
+offset_right = 260.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/separation = 400
+
+[node name="Previous" type="Button" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Previous"
+
+[node name="Next" type="Button" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Next"
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Next" to="." method="_on_next_pressed"]
+
+[editable path="DemoLevel"]
+[editable path="DemoLevel/Bases/BotBase"]
+[editable path="DemoLevel/CameraBase"]
