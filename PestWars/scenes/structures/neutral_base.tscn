@@ -57,7 +57,7 @@ shape = SubResource("CylinderShape3D_mhkc5")
 [node name="HealthComponent" parent="." instance=ExtResource("5_efefd")]
 transform = Transform3D(2.5, 0, 0, 0, -1.09278e-07, 2.5, 0, -2.5, -1.09278e-07, 0, 0, 0)
 texture = SubResource("ViewportTexture_uyrb3")
-base_health = 50.0
+base_health = 30.0
 health_color = Color(0.6, 0.607843, 0.596078, 1)
 base_heal_rate = 2.0
 
