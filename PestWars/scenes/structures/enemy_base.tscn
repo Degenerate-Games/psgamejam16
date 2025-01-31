@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://46sktqtu1pmy"]
+[gd_scene load_steps=15 format=3 uid="uid://46sktqtu1pmy"]
 
 [ext_resource type="Script" path="res://scripts/base.gd" id="1_pol5s"]
 [ext_resource type="Material" uid="uid://dvahnnurtg7d3" path="res://materials/pestMat.tres" id="2_bf0oq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bq8g11gl1b8h7" path="res://scenes/components/health_component.tscn" id="5_oxp7i"]
 [ext_resource type="PackedScene" uid="uid://bcdl5v6f1hbfc" path="res://scenes/units/enemy/pest_bug.tscn" id="7_lwpif"]
 [ext_resource type="PackedScene" uid="uid://b2o2tm5xnowae" path="res://scenes/components/clickable_component.tscn" id="8_hb1gv"]
+[ext_resource type="PackedScene" uid="uid://cu513oxp8qrdm" path="res://scenes/units/enemy/enemy_controller.tscn" id="9_ir4m0"]
 [ext_resource type="PackedScene" uid="uid://d35ye1a8215q4" path="res://scenes/components/spawner_component.tscn" id="14_dcrje"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kqe6k"]
@@ -71,6 +72,8 @@ spawn_object = ExtResource("7_lwpif")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableComponent"]
 shape = SubResource("CylinderShape3D_c6vtv")
+
+[node name="EnemyController" parent="." instance=ExtResource("9_ir4m0")]
 
 [connection signal="can_heal" from="HealthComponent" to="." method="_on_health_component_can_heal"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
