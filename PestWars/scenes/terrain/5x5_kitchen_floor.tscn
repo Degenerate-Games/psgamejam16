@@ -1,0 +1,82 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqao7c5mkmmjh"]
+
+[ext_resource type="PackedScene" uid="uid://1ht4enwes8x5" path="res://scenes/terrain/kitchen_floor_tile.tscn" id="1_pjbqu"]
+
+[node name="5x5KitchenFloor" type="Node3D"]
+
+[node name="KitchenFloorTile" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -80)
+
+[node name="KitchenFloorTile2" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -40)
+
+[node name="KitchenFloorTile3" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 0)
+
+[node name="KitchenFloorTile4" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 40)
+
+[node name="KitchenFloorTile5" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 80)
+
+[node name="KitchenFloorTile6" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -80)
+
+[node name="KitchenFloorTile7" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -40)
+
+[node name="KitchenFloorTile8" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0)
+
+[node name="KitchenFloorTile9" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 40)
+
+[node name="KitchenFloorTile10" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 80)
+
+[node name="KitchenFloorTile11" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
+
+[node name="KitchenFloorTile12" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+
+[node name="KitchenFloorTile13" parent="." instance=ExtResource("1_pjbqu")]
+
+[node name="KitchenFloorTile14" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="KitchenFloorTile15" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 80)
+
+[node name="KitchenFloorTile16" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 80)
+
+[node name="KitchenFloorTile17" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -80)
+
+[node name="KitchenFloorTile18" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -40)
+
+[node name="KitchenFloorTile19" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+
+[node name="KitchenFloorTile20" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 40)
+
+[node name="KitchenFloorTile21" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 80)
+
+[node name="KitchenFloorTile22" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -80)
+
+[node name="KitchenFloorTile23" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -40)
+
+[node name="KitchenFloorTile24" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 0)
+
+[node name="KitchenFloorTile25" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 40)
+
+[node name="KitchenFloorTile26" parent="." instance=ExtResource("1_pjbqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 80)
