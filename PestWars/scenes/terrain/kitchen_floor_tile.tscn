@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://1ht4enwes8x5"]
+
+[ext_resource type="Material" uid="uid://lmaclg581a1p" path="res://materials/kitchenMat.tres" id="1_77jsc"]
+[ext_resource type="ArrayMesh" uid="uid://bqxekk8xuw7q5" path="res://models/kitchenFloorTile.obj" id="2_w2xlb"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lkdka"]
+points = PackedVector3Array(4.06349, -0.0565204, 3.06349, -4.06349, -0.183492, -5.06349, -4.06349, -0.0565204, -5.06349, 4.06349, -0.183492, -5.06349, -4.06349, -0.183492, 3.06349, -4.06349, -0.0565204, 3.06349, 4.06349, -0.0565204, -5.06349, 4.06349, -0.183492, 3.06349)
+
+[node name="KitchenFloorTile" type="StaticBody3D"]
+collision_mask = 6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 5)
+material_override = ExtResource("1_77jsc")
+mesh = ExtResource("2_w2xlb")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 5)
+shape = SubResource("ConvexPolygonShape3D_lkdka")
