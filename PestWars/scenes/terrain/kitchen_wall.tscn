@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d347f7q3xkcfb"]
+
+[ext_resource type="Material" uid="uid://lmaclg581a1p" path="res://materials/kitchenMat.tres" id="1_fc3cd"]
+[ext_resource type="ArrayMesh" uid="uid://7xavwclkjdk2" path="res://models/kitchenWall.obj" id="2_r33xn"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_raom2"]
+data = PackedVector3Array(0, 0, 0, 0, 2.9999, 0, 0, 0, -10, 0, 0, -10, 0, 2.9999, 0, 0, 2.9999, -10, 0, 2.9999, 0, 0, 8, 0, 0, 2.9999, -10, 0, 2.9999, -10, 0, 8, 0, 0, 8, -10)
+
+[node name="KitchenWall" type="StaticBody3D"]
+collision_mask = 6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+material_override = ExtResource("1_fc3cd")
+mesh = ExtResource("2_r33xn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_raom2")
