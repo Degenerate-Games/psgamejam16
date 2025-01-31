@@ -14,7 +14,7 @@ extends Node3D
 
 @export_group("Camera Movement Settings")
 ## The speed at which the camera moves when the camera_forward, camera_backward, camera_right, and camera_left actions are pressed.
-@export_range(0, 100, 1) var camera_manual_pan_speed: float = 20.0
+@export_range(0, 100, 1) var camera_manual_pan_speed: float = 100.0
 ## The margin in pixels from the edge of the screen at which the camera will start to automatically pan when the mouse is near the edge of the screen.
 @export_range(0, 64, 4) var camera_automatic_pan_margin: int = 16
 ## The speed at which the camera moves when the mouse is near the edge of the screen.
@@ -24,7 +24,7 @@ extends Node3D
 
 @export_group("Camera Zoom Settings")
 ## The speed at which the camera zooms in and out when the camera_zoom_in and camera_zoom_out actions are pressed.
-@export_range(0, 100, 1) var camera_zoom_speed: float = 40.0
+@export_range(0, 100, 1) var camera_zoom_speed: float = 100.0
 ## The minimum distance the camera can be from the base.
 @export_range(0, 100, 1) var camera_zoom_min: float = 10.0
 ## The maximum distance the camera can be from the base.
