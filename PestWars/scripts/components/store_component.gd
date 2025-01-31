@@ -7,7 +7,10 @@ signal store_item_bought(store_item: StoreItem)
 @export var store_name: String
 @export var currency: String
 @export var current_currency: int
+@export var maximum_purchases: int
 @export var store_items: Array[StoreItem]
+
+var current_purchases: int = 0
 
 @onready var store_name_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/StoreNameLabel
 @onready var currency_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VFlowContainer/CurrencyNameLabel
@@ -45,6 +48,11 @@ func _ready() -> void:
 
 	hide()
 
+func _process(_delta: float) -> void:
+	if current_purchases >= maximum_purchases:
+		for store_item in store_items:
+			store_item.item_name_button.disabled = true
+
 
 func _on_close_button_pressed() -> void:
 	hide()
@@ -55,6 +63,7 @@ func _on_store_item_button_pressed(store_item: StoreItem) -> void:
 		return
 	store_item_bought.emit(store_item)
 	store_item.buy()
+	current_purchases += 1
 
 
 func update_currency(amount: int) -> void:
@@ -62,7 +71,7 @@ func update_currency(amount: int) -> void:
 	current_currency_label.text = str(current_currency)
 
 	for store_item in store_items:
-		if current_currency >= store_item.get_cost() and !store_item.is_max_level():
+		if current_currency >= store_item.get_cost() and !store_item.is_max_level() and current_purchases < maximum_purchases:
 			store_item.item_name_button.disabled = false
 		else:
 			store_item.item_name_button.disabled = true
