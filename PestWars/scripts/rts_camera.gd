@@ -31,6 +31,10 @@ extends Node3D
 @export_range(0, 100, 1) var camera_zoom_max: float = 25.0
 ## The dampening factor for the camera zoom speed.
 @export_range(0, 2, 0.1) var camera_zoom_dampener: float = 0.9
+## The minimum angle the camera can rotate around the socket.
+@export_range(-360, 360, 0.1, "radians_as_degrees") var camera_zoom_min_angle: float = 15.0
+## The maximum angle the camera can rotate around the socket.
+@export_range(-360, 360, 0.1, "radians_as_degrees") var camera_zoom_max_angle: float = 75.0
 
 @export_group("Camera Rotation Settings")
 ## The speed at which the camera rotates around the base when the camera_rotate_left and camera_rotate_right actions are pressed.
@@ -124,6 +128,7 @@ func camera_zoom_update(delta: float) -> void:
 	var new_zoom: float = camera.position.z + camera_zoom_direction * camera_zoom_speed * delta
 	new_zoom = clamp(new_zoom, camera_zoom_min, camera_zoom_max)
 	camera.position.z = new_zoom
+	camera_socket.rotation.x = lerp(camera_zoom_min_angle, camera_zoom_max_angle, inverse_lerp(camera_zoom_min, camera_zoom_max, new_zoom))
 
 	camera_zoom_direction *= camera_zoom_dampener
 
