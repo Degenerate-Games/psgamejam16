@@ -120,7 +120,7 @@ light_energy = 2.0
 shadow_enabled = true
 
 [node name="CameraBase" parent="." instance=ExtResource("6_gsqhe")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 100, 0, 100)
 camera_manual_pan_speed = 50.0
 camera_safe_pan_zone = Rect2(-150, -150, 300, 300)
 camera_zoom_max = 75.0
