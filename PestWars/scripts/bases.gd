@@ -53,7 +53,6 @@ func find_closest_base(unit_position: Vector3, base_group: String) -> Node3D:
 
 
 func _on_base_destroyed(base: Node3D, attacker_team: String) -> void:
-	print("Base Destroyed", base)
 	var base_index = bases.find(base)
 	if base_index != -1:
 		if base.get_groups().has("neutral_base"):

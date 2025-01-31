@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bbpowpqmdgrnt"]
+[gd_scene load_steps=54 format=3 uid="uid://bbpowpqmdgrnt"]
 
 [ext_resource type="PackedScene" uid="uid://r85m48hu68fe" path="res://scenes/structures/bot_base.tscn" id="1_wbdwb"]
 [ext_resource type="ArrayMesh" uid="uid://bqxekk8xuw7q5" path="res://models/kitchenFloorTile.obj" id="2_85eiu"]
@@ -15,7 +15,9 @@
 [ext_resource type="ArrayMesh" uid="uid://ch5xfgws4tj1" path="res://models/kitchenCabinet.obj" id="9_y8etl"]
 [ext_resource type="PackedScene" uid="uid://b8m368sm4r1j2" path="res://scenes/terrain/kitchen_corner_cabinet.tscn" id="11_1kkaj"]
 [ext_resource type="AudioStream" uid="uid://77apaovt0efa" path="res://audio/Jazzy Stuf.mp3" id="14_imsyq"]
+[ext_resource type="PackedScene" uid="uid://1xd1q5xkqn4t" path="res://scenes/terrain/kitchen_cabinet.tscn" id="14_ov0ii"]
 [ext_resource type="ArrayMesh" uid="uid://ii16euvo1fpt" path="res://models/kitchenDishwasher.obj" id="14_q3r56"]
+[ext_resource type="PackedScene" uid="uid://cyhnmplq1q6t5" path="res://scenes/terrain/kitchen_dishwasher.tscn" id="16_dwdmb"]
 [ext_resource type="ArrayMesh" uid="uid://cdvgy48a6y08v" path="res://models/kitchenSink.obj" id="16_jd02c"]
 [ext_resource type="PackedScene" uid="uid://ba6b2ux6iodxx" path="res://scenes/terrain/kitchen_sink.tscn" id="16_o3vdt"]
 [ext_resource type="PackedScene" uid="uid://cu513oxp8qrdm" path="res://scenes/units/enemy/enemy_controller.tscn" id="17_jj4qy"]
@@ -513,11 +515,7 @@ material_override = SubResource("StandardMaterial3D_au3ok")
 mesh = ExtResource("8_obo02")
 skeleton = NodePath("../..")
 
-[node name="KitchenCabinet" type="MeshInstance3D" parent="James\' lil Node"]
-transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -99, -0.5, 62)
-material_override = SubResource("StandardMaterial3D_ewwct")
-mesh = ExtResource("9_y8etl")
-skeleton = NodePath("../..")
+[node name="KitchenCabinet" parent="James\' lil Node" instance=ExtResource("14_ov0ii")]
 
 [node name="KitchenCabinet2" type="MeshInstance3D" parent="James\' lil Node"]
 transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -99, -0.5, 17)
@@ -537,10 +535,7 @@ material_override = SubResource("StandardMaterial3D_ewwct")
 mesh = ExtResource("9_y8etl")
 skeleton = NodePath("../..")
 
-[node name="KitchenDishwasher" type="MeshInstance3D" parent="James\' lil Node"]
-transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -99, -0.5, 2)
-material_override = ExtResource("3_ib05a")
-mesh = ExtResource("14_q3r56")
+[node name="KitchenDishwasher" parent="James\' lil Node" instance=ExtResource("16_dwdmb")]
 
 [node name="KitchenDishwasher3" type="MeshInstance3D" parent="James\' lil Node"]
 transform = Transform3D(-6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0, 1.5, -99, -0.5, -73)

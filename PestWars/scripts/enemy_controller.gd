@@ -71,7 +71,7 @@ func choose_action(units_per_base: int) -> Action:
 		action_weights = [0.2, 0.3, 0.2, 0.3]
 	else:
 		action_weights = [0.1, 0.4, 0.2, 0.3]
-	
+
 	action = choose_weighted_action(action_probabilities, action_weights)
 	return action
 
@@ -117,7 +117,7 @@ func choose_target_base(from_base: Node3D, action: Action) -> Node3D:
 		base_group = "neutral_base"
 	elif action == Action.REINFORCE:
 		base_group = "enemy_base"
-	
+
 	var closest_base = base_controller.find_closest_base(from_base.global_transform.origin, base_group)
 	target_base = closest_base
 	var min_units_per_distance = 1e6
@@ -141,7 +141,7 @@ func _on_timer_timeout() -> void:
 		total_bases += 1
 	var units_per_base = total_units / total_bases
 	var action = choose_action(units_per_base)
-	var from_base = enemy_bases[randi() % enemy_bases.size()]
+	var from_base = get_parent()
 	var target_base = choose_target_base(from_base, action)
 	var send_units = [0.5, 1.0][randi() % 2]
 	if from_base == target_base:

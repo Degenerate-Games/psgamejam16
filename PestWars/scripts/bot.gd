@@ -85,7 +85,7 @@ func _physics_process(_delta):
 		animation_controller.pause()
 		engine_force = 0
 		steering = 0
-	
+
 	previous_position = global_transform.origin
 
 
